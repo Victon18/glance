@@ -39,5 +39,13 @@ System.out.println("Average"+average)
     Arrays.sort(ar2);
     return ar2;
  }
-
+```
+```java
+public class void main(String[] args){
+    int[] list = {4,5,6,7,8};
+    System.out.println("Print1");
+    for (int i = 0; i<list.length;i++){
+        System.out.println("Print2");
+    }
+}
 ```
