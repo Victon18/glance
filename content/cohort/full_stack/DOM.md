@@ -7,14 +7,14 @@ tags: []
 ## Creating HTML element
 
 - create element method
-```js
+```javascript
 const para = document.createElement("p");
 para.innerText = "This is a paragraph via DOM";
 document.body.appendChild(para);
 ```
 
 ## Finding HTML element
-```js
+```javascript
 //elements by ID
 var firstDiv = document.getElementById("first");
 //elements by tag
@@ -33,7 +33,7 @@ for(let i=0;i<x.length;i++){
 document.getElementById("demo").innerHTML = text;
 ```
 ## Other elements
-```js
+```javascript
 // document.anchors
 document.getElementById("demo").innerHTML =
 "Number of anchors are: " + document.anchors.length;
@@ -50,7 +50,7 @@ document.getElementById("demo").innerHTML = document.documentElement.innerHTML;
 //document.title
 ```
 ## Changing HTML Elements
-```js
+```javascript
 //Property
 element.innerHTML = //new HTML content
 element.attribute = //new value
@@ -60,7 +60,7 @@ element.setAttribute(Attribute,value);
 ```
 # Dynamic HTML content
 ## adding and deleting element
-```js
+```javascript
 // create an HTML element
 document.createElement(element);
 //Remove an Element
@@ -73,7 +73,7 @@ document.replaceChild(element);
 document.write(text);
 ```
 # node method
-```js
+```javascript
 // access child nodes of selected parent
 node.childNodes
 // access first child of selected parent
@@ -88,7 +88,7 @@ node.nextSibling
 node.previousSibling
 ```
 # events
-```js
+```javascript
 //onclick
 <h2 onclick = "this.innerHTML = 'OOPS!'">Click me!</h2>
 //oninput
@@ -98,7 +98,7 @@ node.previousSibling
 <div onmouseup = "mUp(this)" onmousedown = "mDown(this)">
 ```
 ## eventListener
-```js
+```javascript
 //addEventListener(event,function,useCapture);
 document.getElementById("DIV").addEventListener('mousemove',function(){
     document.getELementById("demo").innerHTML = Math.random();
@@ -110,7 +110,7 @@ document.getElementById("DIV").removeEventListener('mousemove',function(){
 ```
 
 ## Bubbling and Capturing
-```js
+```javascript
 //bubbling: inner-most element -> outer-most element
 document.getElementById("DIV").removeEventListener('click',function(){
     alert("This is inner element");

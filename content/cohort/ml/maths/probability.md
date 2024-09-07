@@ -123,7 +123,7 @@ Quartiles
 - Cut the data distribution into 4 equal parts
 - The quartiles are the cuts.
 
-Interquatile Rnage
+Interquartile Range
 ---
 - It is same as range instead its just for quartiles ($Range=Highest-Lowest$)
 - the interquartile range is from Q1 to Q3.
@@ -382,3 +382,6 @@ Alternate hypothesis is also called as research hypothesis. It involves claim to
 hypothesis testing
 ---
 its the way to test the result of a survey or expect to see if we have meaningful data
+
+# outliers
+

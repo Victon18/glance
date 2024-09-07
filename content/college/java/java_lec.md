@@ -49,3 +49,9 @@ public class void main(String[] args){
     }
 }
 ```
+# 6 sep
+```java
+// palindrome strig
+//enter a string and print string by converting all vowels to capital
+//enter a string and checkk if the second last char is happy or not
+```

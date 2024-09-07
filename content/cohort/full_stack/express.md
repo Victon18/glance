@@ -43,7 +43,7 @@ Protocol-URL-Route
 - basic http server
 
 Protocols
-```js
+```javascript
 const express = require("express");
 const app = express();
 const users = [{
@@ -117,7 +117,7 @@ app.listen(3000);
 ```
 
 BODY
-```js
+```javascript
 const express = require('express')
 const bodyParser = require("body-parser");
 const port = 3000
@@ -137,7 +137,7 @@ app.listen(port,()=>{
 
 QUERY
 
-```js
+```javascript
 const express = require('express')
 const bodyParser = require("body-parser");
 const port = 3000
@@ -156,7 +156,7 @@ app.listen(port,()=>{
 ```
 
 HEADERS
-```js
+```javascript
 const express = require('express')
 const bodyParser = require("body-parser");
 const port = 3000
@@ -176,7 +176,7 @@ app.listen(port,()=>{
 ```
 
 STATUS
-```js
+```javascript
 const express = require('express')
 const bodyParser = require("body-parser");
 const port = 3000
@@ -191,7 +191,7 @@ app.listen(port, ()=>{})
 ```
 
 READ-FILE
-```js
+```javascript
 const express =  require("express");
 const fs = require("fs");
 const app = express();
@@ -209,7 +209,7 @@ app.listen(3000);
 ```
 
 ERROR
-```js
+```javascript
 const express = require ("express");
 const app = express();
 app.get("/",function(req,res){

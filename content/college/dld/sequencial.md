@@ -41,7 +41,7 @@ $\LARGE y = \overline{S}D_{0} + SD_{1}$
 | 0   | $D_{0}$ |
 | 1   | $D_{1}$ |
 
-![[2:1.png]]
+![[2_1.png]]
 
 ## 4:1 MUX
 Select lines = 2 ($S_{1}$ and $S_{0}$)
@@ -55,7 +55,7 @@ $\LARGE y = \overline{S_{1}} \overline{S_{0}} D_{0} + \overline{S_{1}} S_{0} D_{
 | 0       | 1       | D1  |
 | 1       | 0       | D2  |
 | 1       | 1       | D3  |
-![[4:1.png]]
+![[4_1.png]]
 ## 8:1 MUX
 
 # DEMUX

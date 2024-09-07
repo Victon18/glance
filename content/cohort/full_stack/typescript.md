@@ -26,7 +26,7 @@ node dist/fileName.js
 ---
 # function
 
-```ts
+```typescript
 function greet(firstName: string){
   console.log("welcome"+firstName)
 }
@@ -47,7 +47,7 @@ runAfter(function () {
 ```
 ---
 # interface
-```ts
+```typescript
 interface User {
   firstName: string;
   lastName: string;
@@ -74,7 +74,7 @@ greet({
 });
 ```
 ---
-```ts
+```typescript
 interface Person {
   name: string;
   age: number;
@@ -96,14 +96,14 @@ console.log(e.name);
 ```
 ---
 # types
-```ts
+```typescript
 type GreetArgs = number | string;
 function greet(id: GreetArgs) {}
 greet(1);
 greet("3sf");
 ```
 ---
-```ts
+```typescript
 type Employees = {
   name: string;
   startDate: Date;
@@ -121,14 +121,14 @@ const t: techie = {
 ```
 ---
 # Array
-```ts
+```typescript
 type NumberArr = number[];
 function maxValue(number:NumberArr) { }
 maxValue([1,2,3]);
 ```
 ---
 # extends
-```ts
+```typescript
 interface User{
   age:number;
 }
@@ -185,7 +185,7 @@ app.get("/new", (res, req) => {
 ```
 ---
 # generics
-```ts
+```typescript
 function getFirstElement<T>(arr: T[]) {
   return arr[0];
 }
@@ -202,7 +202,7 @@ const el3 = getFirstElement(["victon", 1, 2, "newbie"]);
 ---
 # imports and exports
 1. Constant exports
-```ts
+```typescript
 //math.ts
 export function add(x:number,y:number):number{
   return x+y;
@@ -216,7 +216,7 @@ add(1,2)
 ```
 ---
 2. default exports
-```ts
+```typescript
 //calculator.ts
 export default class Calculator{
   add(x:number,y:number):number{
@@ -230,7 +230,7 @@ console.log(calc.add(3,5));
 ```
 ---
 # pick
-```ts
+```typescript
 interface User {
   id: number;
   name: string;
@@ -247,7 +247,7 @@ const displayUserProfile = (user: UserProfile) => {
 ```
 ---
 # exclude
-```ts
+```typescript
 type Event = 'click' | 'scroll' | 'mousemove';
 type ExcludeEvent = Exclude<Event, 'scroll'>; // 'click' | 'mousemove'
 
@@ -259,7 +259,7 @@ handleEvent('click'); // OK
 ```
 ---
 # partial
-```ts
+```typescript
 interface User {
     id: string;
     name: string;
@@ -279,7 +279,7 @@ updateUser({})
 ```
 ---
 # readonly
-```ts
+```typescript
 type User = {
   readonly name: string,
   readonly age: number,
@@ -291,7 +291,7 @@ const user: User  = {
 user.age = 25;
 ```
 ---
-```ts
+```typescript
 interface Config {
   endpoint: string;
   apiKey: string;
@@ -307,7 +307,7 @@ const config: Readonly<Config> = {
 ---
 # cleaner objects
 1. records
-```ts
+```typescript
 interface User {
   id: string;
   name: string;
@@ -325,7 +325,7 @@ console.log(users['abc123']); // Output: { id: 'abc123', name: 'John Doe' }
 ```
 ---
 2. maps
-```ts
+```typescript
 interface User {
   id: string;
   name: string;
@@ -342,7 +342,7 @@ usersMap.set('xyz789', { id: 'xyz789', name: 'Jane Doe' });
 console.log(usersMap.get('abc123')); // Output: { id: 'abc123', name: 'John Doe' }
 ```
 # type interface in zod
-```ts
+```typescript
 import { z } from 'zod';
 import express from "express";
 
