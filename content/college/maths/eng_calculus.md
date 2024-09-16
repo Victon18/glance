@@ -136,3 +136,34 @@ f(x,y)=f(0,0)+(xf_{x}(0,0)+yf_{y}(0,0))+\frac{1}{2!}(x^{2}f_{xx}(0,0)+y^{2}f_{yy
 +\frac{1}{3!}(h^{3}f_{xxx}+k^{3}f_{yyy}+3h^{2}kf_{xxy}+3hk^{2}f_{xyy})+\dots
 \end{align}
 $$
+
+# Jacobian's theorem
+
+If $u_{1},u_{2},\dots,u_{n}$ are the functions of independent variables $x_{1},x_{2},\dots,x_{n}$
+then the determiner is called jacobian or functional determinant of $u_{1},u_{2},\dots,u_{n}$
+with respect to $x_{1},x_{2},\dots,x_{n}$
+
+
+$$\large
+\frac{\delta (u_{1},u_{2},\dots,u_{n})}{\delta (x_{1},x_{2},\dots,x_{n})}
+= \begin{bmatrix}\frac{\delta u_{1}}{\delta x_{1}}&\frac{\delta u_{1}}{\delta x_{2}}
+\dots\frac{\delta u_{1}}{\delta x_{n}}\\\frac{\delta u_{2}}{\delta x_{1}}&
+\frac{\delta u_{2}}{\delta x_{2}}\dots\frac{\delta u_{2}}{\delta x_{n}}\
+\\\dots&\dots\\\frac{\delta u_{n}}{\delta x_{1}}&\frac{\delta u_{n}}{\delta x_{2}}
+\dots\frac{\delta u_{n}}{\delta x_{n}}\end{bmatrix}
+$$
+
+## implicit function
+
+If $u_{1},u_{2}$ and $u_{3}$ are the implicit functions of $x_{1},x_{2},x_{3}$ 
+$F_{1}(u_{1},u_{2},u_{3},x_{1},x_{2},x_{3})=0$
+$F_{2}(u_{1},u_{2},u_{3},x_{1},x_{2},x_{3})=0$
+$F_{3}(u_{1},u_{2},u_{3},x_{1},x_{2},x_{3})=0$
+then, 
+$$\LARGE
+\frac{\delta(u_{1},u_{2},u_{3})}{\delta(x_{1},x_{2},x_{3})} = 
+(-1)^{3}[\frac{\frac{\delta(F_{1},F_{2},F_{3})}{\delta(x_{1},x_{2},x_{3})}}{
+\frac{\delta(F_{1},F_{2},F_{3})}{\delta(u_{1},u_{2},u_{3})}}]
+$$
+
+

@@ -18,7 +18,8 @@
 - System calls provide an interface to the services made available by an operating system.
 - Fork() system call
 ---
-# Kernal
+# Kernel
+
 Kernel is central component of an operating system that manages operations of computer and hardware.
 It basically manages operations of memory and CPU time.
 Kernel loads first into memory when an operating system is loaded and remains into memory until operating system is shut down again.
@@ -44,18 +45,26 @@ So, it helps to reduce the size of both the kernel and operating system.
 It has virtual memory and thread scheduling.
 It is more stable with less services in kernel space. It puts rest in user space.
 
+![[microkernel.png|500]]
 
-## kernal mode vs user mode
+----
+
+## kernel mode vs user mode
 - Inter-process communication
-- Process synchronization
+- Process synchronisation
 - Context switching
+---
+![[kernel.png|500]]
 
 # Functions of OS
 - Memory Management:- Allocation and De-allocation of memory
 - Processor Management:- Keeps tracks of processor and status of process ie traffic controller.
 - Device Management:- Keeps tracks of all devices ie I/O controller.
 - File Management:- Keeps track of information, location, uses, status etc ie file system.
-# Architetures of OS
+
+![[system.png|300]]
+
+# Architectures of OS
 ### Simple
 MS-DOS device drivers are collections of routines in memory that interact with hardware devices.
 It provides the most functionality in least space.
@@ -64,8 +73,11 @@ It provides the most functionality in least space.
 ---
 Here executables can directly execute and access BIOS device drivers.
 There is no layer of protection in between.
+
+![[architecture.png|300]]
+
 ### Layered
-- There are several layers between user and handware.
+- There are several layers between user and hardware.
 - There is modularity in layer meaning each layer uses functions and services of only lower-level
 
 

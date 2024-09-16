@@ -55,3 +55,30 @@ public class void main(String[] args){
 //enter a string and print string by converting all vowels to capital
 //enter a string and checkk if the second last char is happy or not
 ```
+# 9 sept
+String objects are immutable
+it means the content of objects are not possible to change during the execution of program
+if any method tries to change the content new object on the memory is created.
+If we want to create a mutable string object then we can create object of String Buffer or Srirng Builder class
+String Buffer is thread safe but string builder is not thread safe.
+```java
+public static void main(String[] args){
+    String s = new String("gla");
+    StringBuffer s1 = new StringBuffer(s);
+    s1.append("@mathura");
+    s1.replace(4,11,"noida");
+    s1.reverse();
+    s1.tostring();
+    System.out.println(s1);
+    System.out.println(s1.isBlank());
+    System.out.println(s1.isEmpty());
+    String s = new Stirng("go to the hell billboy");
+    StirngTokenizer st=new StringTokenizer(s);
+   // while(st.hasMoreElements()){
+    while(st.hasMoreTokens()){
+        //System.out.println(st.nextToken());
+        System.out.println(st.nextElement());
+    }
+
+}
+```

@@ -1,3 +1,4 @@
+# comments
 ```java
 // Single-line comments start with //
 
@@ -18,121 +19,95 @@ Multi-line comments look like this.
  * @deprecated  For showing the code is outdated or shouldn't be used.
  * @see         Links to another part of documentation.
 */
-
+```
+# imports
+```java
 // Import ArrayList class inside of the java.util package
 import java.util.ArrayList;
 // Import all classes inside of java.security package
 import java.security.*;
-
+```
+# main  function
+```java
 public class LearnJava {
-
-    // In order to run a java program, it must have a main method as an entry
-    // point.
+// In order to run a java program, it must have a main method as an entry point.
     public static void main(String[] args) {
 
-    ///////////////////////////////////////
-    // Input/Output
-    ///////////////////////////////////////
-
-        /*
-        * Output
-        */
-
+    }
+}
+```
+# output
+```java
         // Use System.out.println() to print lines.
-        System.out.println("Hello World!");
-        System.out.println(
-            "Integer: " + 10 +
-            " Double: " + 3.14 +
-            " Boolean: " + true);
-
+System.out.println("Hello World!");
+System.out.println("Integer: " + 10 +" Double: " + 3.14 +" Boolean: " + true);
         // To print without a newline, use System.out.print().
-        System.out.print("Hello ");
-        System.out.print("World");
-
+System.out.print("Hello ");
+System.out.print("World");
         // Use System.out.printf() for easy formatted printing.
-        System.out.printf("pi = %.5f", Math.PI); // => pi = 3.14159
-
-        /*
-         * Input
-         */
-
+System.out.printf("pi = %.5f", Math.PI); // => pi = 3.14159
+```
+# inputs
+```java
         // use Scanner to read input
         // must import java.util.Scanner;
-        Scanner scanner = new Scanner(System.in);
-
+Scanner scanner = new Scanner(System.in);
         // read string input
-        String name = scanner.next();
-
+String name = scanner.next();
         // read byte input
-        byte numByte = scanner.nextByte();
-
+byte numByte = scanner.nextByte();
         // read int input
-        int numInt = scanner.nextInt();
-
+int numInt = scanner.nextInt();
         // read long input
-        long numLong = scanner.nextLong();
-
+long numLong = scanner.nextLong();
         // read float input
-        float numFloat = scanner.nextFloat();
-
+float numFloat = scanner.nextFloat();
         // read double input
-        double numDouble = scanner.nextDouble();
-
+double numDouble = scanner.nextDouble();
         // read boolean input
-        boolean bool = scanner.nextBoolean();
-
-        ///////////////////////////////////////
-        // Variables
-        ///////////////////////////////////////
-
-        /*
-        *  Variable Declaration
-        */
+boolean bool = scanner.nextBoolean();
+```
+# variables
+## declaration
+```java
         // Declare a variable using <type> <name>
-        int fooInt;
+int fooInt;
         // Declare multiple variables of the same
         // type <type> <name1>, <name2>, <name3>
-        int fooInt1, fooInt2, fooInt3;
-
-        /*
-        *  Variable Initialization
-        */
-
+int fooInt1, fooInt2, fooInt3;
+```
+## initialization
+```java
         // Initialize a variable using <type> <name> = <val>
-        int barInt = 1;
+int barInt = 1;
         // Initialize multiple variables of same type with same
         // value <type> <name1>, <name2>, <name3>
         // <name1> = <name2> = <name3> = <val>
-        int barInt1, barInt2, barInt3;
-        barInt1 = barInt2 = barInt3 = 1;
+int barInt1, barInt2, barInt3;
+barInt1 = barInt2 = barInt3 = 1;
         // Shorthand for multiple declarations
-        int barInt4 = 1, barInt5 = 2;
-
-
-        /*
-        *  Variable types
-        */
+int barInt4 = 1, barInt5 = 2;
+```
+# data types
+## primitive
+```java
         // Byte - 8-bit signed two's complement integer
         // (-128 <= byte <= 127)
-        byte fooByte = 100;
-
+byte fooByte = 100;
         // If you would like to interpret a byte as an unsigned integer
         // then this simple operation can help
-        int unsignedIntLessThan256 = 0xff & fooByte;
+int unsignedIntLessThan256 = 0xff & fooByte;
         // this contrasts a cast which can be negative.
-        int signedInt = (int) fooByte;
-
+int signedInt = (int) fooByte;
         // Short - 16-bit signed two's complement integer
         // (-32,768 <= short <= 32,767)
-        short fooShort = 10000;
-
+short fooShort = 10000;
         // Integer - 32-bit signed two's complement integer
         // (-2,147,483,648 <= int <= 2,147,483,647)
-        int bazInt = 1;
-
+int bazInt = 1;
         // Long - 64-bit signed two's complement integer
         // (-9,223,372,036,854,775,808 <= long <= 9,223,372,036,854,775,807)
-        long fooLong = 100000L;
+long fooLong = 100000L;
         // L is used to denote that this variable value is of type Long;
         // anything without is treated as integer by default.
 
@@ -142,27 +117,31 @@ public class LearnJava {
 
         // Float - Single-precision 32-bit IEEE 754 Floating Point
         // 2^-149 <= float <= (2-2^-23) * 2^127
-        float fooFloat = 234.5f;
+float fooFloat = 234.5f;
         // f or F is used to denote that this variable value is of type float;
         // otherwise it is treated as double.
 
         // Double - Double-precision 64-bit IEEE 754 Floating Point
         // 2^-1074 <= x <= (2-2^-52) * 2^1023
-        double fooDouble = 123.4;
+double fooDouble = 123.4;
 
         // Boolean - true & false
-        boolean fooBoolean = true;
-        boolean barBoolean = false;
+boolean fooBoolean = true;
+boolean barBoolean = false;
 
         // Char - A single 16-bit Unicode character
-        char fooChar = 'A';
-
+char fooChar = 'A';
+```
+## final
+```java
         // final variables can't be reassigned,
-        final int HOURS_I_WORK_PER_WEEK = 9001;
+final int HOURS_I_WORK_PER_WEEK = 9001;
         // but they can be initialized later.
-        final double E;
-        E = 2.71828;
-
+final double E;
+E = 2.71828;
+```
+## Big datatype
+```java
         // BigInteger - Immutable arbitrary-precision integers
         //
         // BigInteger is a data type that allows programmers to manipulate
@@ -170,7 +149,7 @@ public class LearnJava {
         // bytes and are manipulated using functions built into BigInteger
         //
         // BigInteger can be initialized using an array of bytes or a string.
-        BigInteger fooBigInteger = new BigInteger(fooByteArray);
+BigInteger fooBigInteger = new BigInteger(fooByteArray);
 
         // BigDecimal - Immutable, arbitrary-precision signed decimal number
         //
@@ -183,80 +162,86 @@ public class LearnJava {
         //
         // BigDecimal can be initialized with an int, long, double or String
         // or by initializing the unscaled value (BigInteger) and scale (int).
-        BigDecimal fooBigDecimal = new BigDecimal(fooBigInteger, fooInt);
+BigDecimal fooBigDecimal = new BigDecimal(fooBigInteger, fooInt);
 
         // Be wary of the constructor that takes a float or double as
         // the inaccuracy of the float/double will be copied in BigDecimal.
         // Prefer the String constructor when you need an exact value.
-        BigDecimal tenCents = new BigDecimal("0.1");
-
+BigDecimal tenCents = new BigDecimal("0.1");
+```
+## Stirngs
+```java
         // Strings
-        String fooString = "My String Is Here!";
+String fooString = "My String Is Here!";
 
         // \n is an escaped character that starts a new line
-        String barString = "Printing on a new line?\nNo Problem!";
+String barString = "Printing on a new line?\nNo Problem!";
         // \t is an escaped character that adds a tab character
-        String bazString = "Do you want to add a tab?\tNo Problem!";
-        System.out.println(fooString);
-        System.out.println(barString);
-        System.out.println(bazString);
-
+String bazString = "Do you want to add a tab?\tNo Problem!";
+System.out.println(fooString);
+System.out.println(barString);
+System.out.println(bazString);
+```
+### string concatination
+```java
         // String Building
         // #1 - with plus operator
         // That's the basic way to do it (optimized under the hood)
-        String plusConcatenated = "Strings can " + "be concatenated " + "via + operator.";
-        System.out.println(plusConcatenated);
+String plusConcatenated = "Strings can " + "be concatenated " + "via + operator.";
+System.out.println(plusConcatenated);
         // Output: Strings can be concatenated via + operator.
 
         // #2 - with StringBuilder
         // This way doesn't create any intermediate strings. It just stores the string pieces, and ties them together
         // when toString() is called.
         // Hint: This class is not thread safe. A thread-safe alternative (with some impact on performance) is StringBuffer.
-        StringBuilder builderConcatenated = new StringBuilder();
-        builderConcatenated.append("You ");
-        builderConcatenated.append("can use ");
-        builderConcatenated.append("the StringBuilder class.");
-        System.out.println(builderConcatenated.toString()); // only now is the string built
+StringBuilder builderConcatenated = new StringBuilder();
+builderConcatenated.append("You ");
+builderConcatenated.append("can use ");
+builderConcatenated.append("the StringBuilder class.");
+System.out.println(builderConcatenated.toString()); // only now is the string built
         // Output: You can use the StringBuilder class.
 
         // StringBuilder is efficient when the fully constructed String is not required until the end of some processing.
-        StringBuilder stringBuilder = new StringBuilder();
-        String inefficientString = "";
-        for (int i = 0 ; i < 10; i++) {
-            stringBuilder.append(i).append(" ");
-            inefficientString += i + " ";
-        }
-        System.out.println(inefficientString);
-        System.out.println(stringBuilder.toString());
+StringBuilder stringBuilder = new StringBuilder();
+String inefficientString = "";
+for (int i = 0 ; i < 10; i++) {
+    stringBuilder.append(i).append(" ");
+    inefficientString += i + " ";
+}
+System.out.println(inefficientString);
+System.out.println(stringBuilder.toString());
         // inefficientString requires a lot more work to produce, as it generates a String on every loop iteration.
         // Simple concatenation with + is compiled to a StringBuilder and toString()
         // Avoid string concatenation in loops.
 
         // #3 - with String formatter
         // Another alternative way to create strings. Fast and readable.
-        String.format("%s may prefer %s.", "Or you", "String.format()");
+String.format("%s may prefer %s.", "Or you", "String.format()");
         // Output: Or you may prefer String.format().
-
+```
+## Arrays
+```java
         // Arrays
         // The array size must be decided upon instantiation
         // The following formats work for declaring an array
         // <datatype>[] <var name> = new <datatype>[<array size>];
         // <datatype> <var name>[] = new <datatype>[<array size>];
-        int[] intArray = new int[10];
-        String[] stringArray = new String[1];
-        boolean boolArray[] = new boolean[100];
+int[] intArray = new int[10];
+String[] stringArray = new String[1];
+boolean boolArray[] = new boolean[100];
 
         // Another way to declare & initialize an array
-        int[] y = {9000, 1000, 1337};
-        String names[] = {"Bob", "John", "Fred", "Juan Pedro"};
-        boolean bools[] = {true, false, false};
+int[] y = {9000, 1000, 1337};
+String names[] = {"Bob", "John", "Fred", "Juan Pedro"};
+boolean bools[] = {true, false, false};
 
         // Indexing an array - Accessing an element
-        System.out.println("intArray @ 0: " + intArray[0]);
+System.out.println("intArray @ 0: " + intArray[0]);
 
         // Arrays are zero-indexed and mutable.
-        intArray[1] = 1;
-        System.out.println("intArray @ 1: " + intArray[1]); // => 1
+intArray[1] = 1;
+System.out.println("intArray @ 1: " + intArray[1]); // => 1
 
         // Other data types worth checking out
         // ArrayLists - Like arrays except more functionality is offered, and
@@ -283,37 +268,33 @@ public class LearnJava {
         //           Insertion and removal operations take O(log(n)) time
         //           so avoid using this data structure unless you are taking
         //           advantage of the sorting.
-
-        ///////////////////////////////////////
-        // Operators
-        ///////////////////////////////////////
-        System.out.println("\n->Operators");
-
-        int i1 = 1, i2 = 2;
+```
+# operators
+```java
+int i1 = 1, i2 = 2;
 
         // Arithmetic is straightforward
-        System.out.println("1+2 = " + (i1 + i2)); // => 3
-        System.out.println("2-1 = " + (i2 - i1)); // => 1
-        System.out.println("2*1 = " + (i2 * i1)); // => 2
-        System.out.println("1/2 = " + (i1 / i2)); // => 0 (int/int returns int)
-        System.out.println("1/2.0 = " + (i1 / (double)i2)); // => 0.5
-
+System.out.println("1+2 = " + (i1 + i2)); // => 3
+System.out.println("2-1 = " + (i2 - i1)); // => 1
+System.out.println("2*1 = " + (i2 * i1)); // => 2
+System.out.println("1/2 = " + (i1 / i2)); // => 0 (int/int returns int)
+System.out.println("1/2.0 = " + (i1 / (double)i2)); // => 0.5
         // Modulo
-        System.out.println("11%3 = " + (11 % 3)); // => 2
-
+System.out.println("11%3 = " + (11 % 3)); // => 2
         // Comparison operators
-        System.out.println("3 == 2? " + (3 == 2)); // => false
-        System.out.println("3 != 2? " + (3 != 2)); // => true
-        System.out.println("3 > 2? " + (3 > 2)); // => true
-        System.out.println("3 < 2? " + (3 < 2)); // => false
-        System.out.println("2 <= 2? " + (2 <= 2)); // => true
-        System.out.println("2 >= 2? " + (2 >= 2)); // => true
-
+System.out.println("3 == 2? " + (3 == 2)); // => false
+System.out.println("3 != 2? " + (3 != 2)); // => true
+System.out.println("3 > 2? " + (3 > 2)); // => true
+System.out.println("3 < 2? " + (3 < 2)); // => false
+System.out.println("2 <= 2? " + (2 <= 2)); // => true
+System.out.println("2 >= 2? " + (2 >= 2)); // => true
         // Boolean operators
-        System.out.println("3 > 2 && 2 > 3? " + ((3 > 2) && (2 > 3))); // => false
-        System.out.println("3 > 2 || 2 > 3? " + ((3 > 2) || (2 > 3))); // => true
-        System.out.println("!(3 == 2)? " + (!(3 == 2))); // => true
-
+System.out.println("3 > 2 && 2 > 3? " + ((3 > 2) && (2 > 3))); // => false
+System.out.println("3 > 2 || 2 > 3? " + ((3 > 2) || (2 > 3))); // => true
+System.out.println("!(3 == 2)? " + (!(3 == 2))); // => true
+```
+## bitwise operator
+```java
         // Bitwise operators!
         /*
         ~      Unary bitwise complement
@@ -324,84 +305,96 @@ public class LearnJava {
         ^      Bitwise exclusive OR
         |      Bitwise inclusive OR
         */
-
+```
+## increments and decrements
+```java
         // Increment operators
-        int i = 0;
-        System.out.println("\n->Inc/Dec-rementation");
+int i = 0;
         // The ++ and -- operators increment and decrement by 1 respectively.
         // If they are placed before the variable, they increment then return;
         // after the variable they return then increment.
-        System.out.println(i++); // i = 1, prints 0 (post-increment)
-        System.out.println(++i); // i = 2, prints 2 (pre-increment)
-        System.out.println(i--); // i = 1, prints 2 (post-decrement)
-        System.out.println(--i); // i = 0, prints 0 (pre-decrement)
-
-        ///////////////////////////////////////
-        // Control Structures
-        ///////////////////////////////////////
-        System.out.println("\n->Control Structures");
-
+System.out.println(i++); // i = 1, prints 0 (post-increment)
+System.out.println(++i); // i = 2, prints 2 (pre-increment)
+System.out.println(i--); // i = 1, prints 2 (post-decrement)
+System.out.println(--i); // i = 0, prints 0 (pre-decrement)
+```
+# control structures
+### if else
+```java
         // If statements are c-like
-        int j = 10;
-        if (j == 10) {
-            System.out.println("I get printed");
-        } else if (j > 10) {
-            System.out.println("I don't");
-        } else {
-            System.out.println("I also don't");
-        }
-
+int j = 10;
+if (j == 10) {
+    System.out.println("I get printed");
+} else if (j > 10) {
+    System.out.println("I don't");
+} else {
+    System.out.println("I also don't");
+}
+```
+### while loop
+```java
         // While loop
-        int fooWhile = 0;
-        while (fooWhile < 100) {
-            System.out.println(fooWhile);
+int fooWhile = 0;
+while (fooWhile < 100) {
+    System.out.println(fooWhile);
             // Increment the counter
             // Iterated 100 times, fooWhile 0,1,2...99
-            fooWhile++;
-        }
-        System.out.println("fooWhile Value: " + fooWhile);
+    fooWhile++;
+}
+System.out.println("fooWhile Value: " + fooWhile);
+```
+### do while loop
 
+```java
         // Do While Loop
-        int fooDoWhile = 0;
-        do {
-            System.out.println(fooDoWhile);
+int fooDoWhile = 0;
+do {
+    System.out.println(fooDoWhile);
             // Increment the counter
             // Iterated 100 times, fooDoWhile 0->99
-            fooDoWhile++;
-        } while (fooDoWhile < 100);
-        System.out.println("fooDoWhile Value: " + fooDoWhile);
-
+    fooDoWhile++;
+} while (fooDoWhile < 100);
+    System.out.println("fooDoWhile Value: " + fooDoWhile);
+```
+### for loop
+```java
         // For Loop
         // for loop structure => for(<start_statement>; <conditional>; <step>)
-        for (int fooFor = 0; fooFor < 10; fooFor++) {
-            System.out.println(fooFor);
+for (int fooFor = 0; fooFor < 10; fooFor++) {
+    System.out.println(fooFor);
             // Iterated 10 times, fooFor 0->9
-        }
-        System.out.println("fooFor Value: " + fooFor);
-
+}
+System.out.println("fooFor Value: " + fooFor);
+```
+### nested loop
+```java
         // Nested For Loop Exit with Label
-        outer:
-        for (int i = 0; i < 10; i++) {
-          for (int j = 0; j < 10; j++) {
-            if (i == 5 && j ==5) {
-              break outer;
+outer:
+for (int i = 0; i < 10; i++) {
+    for (int j = 0; j < 10; j++) {
+        if (i == 5 && j ==5) {
+            break outer;
               // breaks out of outer loop instead of only the inner one
-            }
-          }
         }
-
+    }
+}
+```
+### for each
+```java
         // For Each Loop
         // The for loop is also able to iterate over arrays as well as objects
         // that implement the Iterable interface.
-        int[] fooList = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+int[] fooList = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         // for each loop structure => for (<object> : <iterable>)
         // reads as: for each element in the iterable
         // note: the object type must match the element type of the iterable.
-        for (int bar : fooList) {
-            System.out.println(bar);
+for (int bar : fooList) {
+    System.out.println(bar);
             //Iterates 9 times and prints 1-9 on new lines
-        }
-
+}
+```
+### switch case
+```java
         // Switch Case
         // A switch works with the byte, short, char, and int data types.
         // It also works with enumerated types (discussed in Enum Types), the
@@ -410,20 +403,22 @@ public class LearnJava {
         // Starting in Java 7 and above, we can also use the String type.
         // Note: Do remember that, not adding "break" at end any particular case ends up in
         // executing the very next case(given it satisfies the condition provided) as well.
-        int month = 3;
-        String monthString;
-        switch (month) {
-            case 1: monthString = "January";
-                    break;
-            case 2: monthString = "February";
-                    break;
-            case 3: monthString = "March";
-                    break;
-            default: monthString = "Some other month";
-                     break;
-        }
-        System.out.println("Switch Case Result: " + monthString);
-
+int month = 3;
+String monthString;
+switch (month) {
+    case 1: monthString = "January";
+        break;
+    case 2: monthString = "February";
+        break;
+    case 3: monthString = "March";
+        break;
+    default: monthString = "Some other month";
+        break;
+}
+System.out.println("Switch Case Result: " + monthString);
+```
+### try and catch
+```java
 
         // Try-with-resources (Java 7+)
         // Try-catch-finally statements work as expected in Java but in Java 7+
@@ -433,101 +428,83 @@ public class LearnJava {
 
         // In order to use a try-with-resources, include an instance of a class
         // in the try statement. The class must implement java.lang.AutoCloseable.
-        try (BufferedReader br = new BufferedReader(new FileReader("foo.txt"))) {
+try (BufferedReader br = new BufferedReader(new FileReader("foo.txt"))) {
             // You can attempt to do something that could throw an exception.
-            System.out.println(br.readLine());
+    System.out.println(br.readLine());
             // In Java 7, the resource will always be closed, even if it throws
             // an Exception.
-        } catch (Exception ex) {
+} catch (Exception ex) {
             //The resource will be closed before the catch statement executes.
-            System.out.println("readLine() failed.");
-        }
+    System.out.println("readLine() failed.");
+}
         // No need for a finally statement in this case, the BufferedReader is
         // already closed. This can be used to avoid certain edge cases where
         // a finally statement might not be called.
         // To learn more:
         // https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
 
-
+```
+### one liners
+```java
         // Conditional Shorthand
         // You can use the '?' operator for quick assignments or logic forks.
         // Reads as "If (statement) is true, use <first value>, otherwise, use
         // <second value>"
-        int foo = 5;
-        String bar = (foo < 10) ? "A" : "B";
-        System.out.println("bar : " + bar); // Prints "bar : A", because the
+int foo = 5;
+String bar = (foo < 10) ? "A" : "B";
+System.out.println("bar : " + bar); // Prints "bar : A", because the
         // statement is true.
         // Or simply
-        System.out.println("bar : " + (foo < 10 ? "A" : "B"));
+System.out.println("bar : " + (foo < 10 ? "A" : "B"));
 
-
-        ////////////////////////////////////////
-        // Converting Data Types
-        ////////////////////////////////////////
-
-        // Converting data
-
+```
+# converting data types
+```java
         // Convert String To Integer
-        Integer.parseInt("123");//returns an integer version of "123"
+Integer.parseInt("123");//returns an integer version of "123"
 
         // Convert Integer To String
-        Integer.toString(123);//returns a string version of 123
+Integer.toString(123);//returns a string version of 123
 
         // For other conversions check out the following classes:
         // Double
         // Long
         // String
-
-        ///////////////////////////////////////
-        // Classes And Functions
-        ///////////////////////////////////////
-
-        System.out.println("\n->Classes & Functions");
-
-        // (definition of the Bicycle class follows)
-
+```
+# classes and functions
+```java
+public static void main(String[] args) {
         // Use new to instantiate a class
-        Bicycle trek = new Bicycle();
-
+    Bicycle trek = new Bicycle();
         // Call object methods
-        trek.speedUp(3); // You should always use setter and getter methods
-        trek.setCadence(100);
-
+    trek.speedUp(3); // You should always use setter and getter methods
+    trek.setCadence(100);
         // toString returns this Object's string representation.
-        System.out.println("trek info: " + trek.toString());
-    } // End main method
+    System.out.println("trek info: " + trek.toString());
+} // End main method
 
-    private static class TestInitialization {
+private static class TestInitialization {
         // Double Brace Initialization
         // Before Java 11, the Java Language had no syntax for how to create
         // static Collections in an easy way. Usually you end up like this:
-        private static final Set<String> COUNTRIES = new HashSet<String>();
-        static {
-           COUNTRIES.add("DENMARK");
-           COUNTRIES.add("SWEDEN");
-           COUNTRIES.add("FINLAND");
-        }
-
+    private static final Set<String> COUNTRIES = new HashSet<String>();
+    static {
+        COUNTRIES.add("DENMARK");
+        COUNTRIES.add("SWEDEN");
+        COUNTRIES.add("FINLAND");
+    }
         // There's a nifty way to achieve the same thing,
         // by using something that is called Double Brace Initialization.
-        private static final Set<String> COUNTRIES_DOUBLE_BRACE =
-        new HashSet<String>() {{
-            add("DENMARK");
-            add("SWEDEN");
-            add("FINLAND");
-        }}
-
+    private static final Set<String> COUNTRIES_DOUBLE_BRACE = new HashSet<String>() {{ add("DENMARK"); add("SWEDEN"); add("FINLAND");}}
         // The first brace is creating a new AnonymousInnerClass and the
         // second one declares an instance initializer block. This block
         // is called when the anonymous inner class is created.
         // This does not only work for Collections, it works for all
         // non-final classes.
 
-
         // Another option was to initialize the Collection from an array,
         // using Arrays.asList() method:
-        private static final List<String> COUNTRIES_AS_LIST =
-                        Arrays.asList("SWEDEN", "DENMARK", "NORWAY");
+    private static final List<String> COUNTRIES_AS_LIST = Arrays.asList("SWEDEN", "DENMARK", "NORWAY");
         // This has one catch: the list we get is internally backed by the array,
         // and since arrays can't change their size, the list backed by the array
         // is not resizeable, which means we can't add new elements to it:
@@ -542,9 +519,9 @@ public class LearnJava {
          private static final Set<String> COUNTRIES_SET =
                 new HashSet<>(Arrays.asList("SWEDEN", "DENMARK", "NORWAY"));
         // It's perfectly fine to add anything to the Set of COUNTRIES now.
-    } // End TestInitialization class
+} // End TestInitialization class
 
-    private static class TestJava11Initialization {
+private static class TestJava11Initialization {
         // Since Java 11, there is a convenient option to initialize Collections:
         // Set.of() and List.of() methods.
         private static final Set<String> COUNTRIES =
@@ -700,6 +677,8 @@ public interface Digestible {
 public class Fruit implements Edible, Digestible {
     @Override
     public void eat() {
+        // Use new to instantiate a class
+        Bicycle trek = new Bicycle();
         // ...
     }
 
@@ -830,7 +809,9 @@ public abstract class Mammal()
         return true;
     }
 }
-
+```
+## Enum
+```java
 // Enum Type
 //
 // An enum type is a special data type that enables for a variable to be a set
@@ -870,7 +851,6 @@ public class EnumTest {
                 break;
         }
     }
-
     public static void main(String[] args) {
         EnumTest firstDay = new EnumTest(Day.MONDAY);
         firstDay.tellItLikeItIs(); // => Mondays are bad.
@@ -897,6 +877,7 @@ public class EnumTest {
 // is treated as a functional interface. You can read more about interfaces
 // above.
 //
+
 import java.util.Map;
 import java.util.HashMap;
 import java.util.function.*;
