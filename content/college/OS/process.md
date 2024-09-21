@@ -20,17 +20,22 @@
 Each process is represented in the OS by a PROCESS CONTROL BLOCK (PCB)- also called Task control Block.
 - **Program Counter** -> Current activity including program counter, processor registers
 
+![[pcb.png|400]]
 # process state diagram
 
 ## 5 state
+
+![[5stage.png]]
 ### process names
 1. **Awake**: New -> Ready
 2. **Dispatch**: Ready -> Running
-3. **Timerrunout**: Running -> Ready
+3. **Timer-runout**: Running -> Ready
 4. **Block**: Running -> Blocked
 5. **wakeup**: Blocked-> Ready
 
 ## 7 state
+
+![[7stage.png]]
 
 # process scheduling
 ## types of process (Multiprocessing)
@@ -59,4 +64,6 @@ Processes migrate among the various queues
 - Context-switch time is pure overhead; the system does no useful work while switching
 - complexity of OS and the PCB $\varpropto$ time in context switch
 - Some hardware provides multiple sets of registers per CPU ie multiple contexts loaded at once
+
+![[context.png]]
 

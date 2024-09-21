@@ -495,7 +495,8 @@ private static class TestInitialization {
     }
         // There's a nifty way to achieve the same thing,
         // by using something that is called Double Brace Initialization.
-    private static final Set<String> COUNTRIES_DOUBLE_BRACE = new HashSet<String>() {{ add("DENMARK"); add("SWEDEN"); add("FINLAND");}}
+    private static final Set<String> COUNTRIES_DOUBLE_BRACE =
+        new HashSet<String>() {{ add("DENMARK"); add("SWEDEN"); add("FINLAND");}}
         // The first brace is creating a new AnonymousInnerClass and the
         // second one declares an instance initializer block. This block
         // is called when the anonymous inner class is created.

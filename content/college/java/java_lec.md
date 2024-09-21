@@ -82,3 +82,134 @@ public static void main(String[] args){
 
 }
 ```
+# 16 sep - Inheritance
+
+```java
+public class MainClass{
+    public static void main (String[] args){
+        Person p1 = new Person ("Mohan",45);
+        Person p2 = new Person ("Mohan",45);
+        System.out.println("No of objects: "+ p2.count);
+        // for static  System.out.println("No of objects: "+ Person.count);
+        p1.talking();
+    }
+}
+public class Person {
+    private String name; //instance variable
+    private int age;
+    static int count=0; //class variable
+
+    public Person(String name,int age){
+        super();
+        this.name;
+        this.age;
+        count ++;
+    }
+    public void
+}
+```
+----
+```java
+package java_2dc;
+
+public class MainClass{
+    public static void main(String[] args){
+        Test t1 = new Test();
+        system.out.println(Test.y);
+    }
+}
+```
+# 17 sep
+Inheritance -> reuseability + extension + Modification
+```Java
+class Rectangle{
+    int length;
+    int breadth;
+    public void area (){
+        int area = length * breadth;
+        System.out.println("Area: "+ area);
+    }
+}
+Class Cuboid extends Rectangle{
+    int height;
+    public void volume(){
+        int volume = length*breadth*height
+        System.out.println("Volume: "+ volume);
+    }
+}
+Class Main{
+    public static void main (String[] args){
+        Cuboid c1 =  new Cuboid();
+        c1.length = 10;
+        c1.breadth = 30;
+        c1.height = 13;
+        c1.area();
+        c1.volume();
+    }
+}
+```
+----
+class Data
+- sum of digits
+class Mydata extends data
+- average
+- lcm
+class Main
+- make obj
+- call functions
+```java
+class Driver{
+    public static void main (String[] args){
+        Mydata c1 =  new Mydata();
+        c1.num1 = 3;
+        c1.num2 = 4;
+        c1.sumOfdigits();
+        c1.average();
+       c1.lcm();
+    }
+}
+class Data{
+    int num1;
+    int sum = 0;
+    public void sumOfdigits () {
+  		int rem;
+  		int n = num1;
+    		while (n > 0) {
+    			rem = num1 % 10;
+    			sum = sum+rem;
+    			n = n / 10;
+    		}
+      System.out.println("Sum: "+ sum);
+    }
+}
+class Mydata extends Data{
+    int num2;
+    public void average(){
+        int sum = num1+num2;
+        int avg = sum/2;
+        System.out.println("average: "+ avg);
+    }
+  public void lcm (){
+        int ans = (num1 > num2) ? num1 : num2;
+        while (true) {
+            if (ans % num1 == 0 && ans % num2 == 0)
+                break;
+            ans++;
+        }
+        System.out.println("LCM: " + ans);
+    }
+}
+```
+---
+class Data1
+- string as inputs
+- count vowels
+class data2 extends data1
+- string as input
+- replace vowels in capitals inside both strings
+- print unique chars in string
+class Main
+- make obj
+- call functions
+```java
+```
