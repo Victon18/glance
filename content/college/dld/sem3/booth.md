@@ -1,3 +1,7 @@
+# Binary (Array) Multiplier:
+---
+Multiplication of binary numbers is performed in the same way as multiplication of decimal numbers.
+The multiplicand is multiplied by each bit of the multiplier, starting from the least significant bit.
 # booth algorithm
 
 - Booth algorithm gives a procedure for multiplying binary integers in signed-2’s complement representation.
@@ -21,3 +25,22 @@ Hardware Implementation of booth's algorithm
 4. The multiplier and multiplicand are stored in the `QR` and `BR` registers respectively.
 5. $Q_{n}$ designates the least significant bit of the multiplier in register `QR`.
 6. An extra flip-flop $Q_{n+1}$is appended to `QR` to facilitate a double bit inspection of the multiplier.
+
+Example (-15)X-8
+
+-5  -> BR = 1011
+    $\overline{BR}+1$ = 0101
+-7 -> $Q_{R}$ = 1001 in two's compliment
+
+| $Q_{n}$ | $Q_{n+1}$ | AC       | BR & $\overline{BR}+1$ | $Q_{R}$ | $Q_{n+1}$ | SC  |
+| ------- | --------- | -------- | ---------------------- | ------- | --------- | --- |
+| -       | -         | -        | 00000                  | 1001    | 0         | 100 |
+| 1       | 0         | subtract | 0000+0101=0101         | -       | -         | -   |
+| -       | -         | ashr     | 0010                   | 1100    | 1         | 011 |
+| 0       | 1         | add      | 0010+1011=1101         | -       | -         | -   |
+| -       | -         | ashr     | 1110                   | 1110    | 0         | 010 |
+| 0       | 0         | ashr     | 1111                   | 0111    | 0         | 001 |
+| 1       | 0         | subtract | 1111+0101=0100         | -       | -         | -   |
+| -       | -         | ashr     | 0010                   | 0011    | 1         | 000 |
+
+hence the answer is = 00100011 -> 35

@@ -4,8 +4,7 @@ public class courseProgram{
     public static void main (String[] args){
         Course c1 = new Course(10,"Java","Astik",5,10);
         Course c2 = new Course(20,"Python","Pratik",4,30);
-        Course c3 = new Course(30,"Ruby","Kalpana",2,40);
-        Course arr[] = {c1,c2,c3}
+        Course c3 = new Course(30,"Ruby","Kalpana",2,40); Course arr[] = {c1,c2,c3}
         int average = findAng(arr,"Astik");
         System.out.println("Average"+average)
     }
@@ -212,4 +211,219 @@ class Main
 - make obj
 - call functions
 ```java
+```
+# 23 sep
+Polymorphism
+---
+Polymorphism is a concept of implimenting different ways to get different output
+Polymorphism is the most important component of object oriented development
+It is of 2 types
+    - complile time polymorphism
+    - run time polymorphism
+Compile time polymorphism is method overloading
+Run time polymorphism is method overidding
+Method overloading a class can have more than one methods with same name and with different arguments
+Method overloading is compile time
+Method overridding parent class and child class have the same method with same name and with same aurguments
+
+```java
+class addition{
+    public void add(int a, int b){
+        System.out.println("add: "+(a+b))
+    }
+    public void add(int a, int b, int c){
+        System.out.println("add: "+(a+b+c))
+    }
+    public void add(double a, double  b){
+        System.out.println("add: "+(a+b))
+    }
+
+}
+class Main{
+    public static void main(String args[]){
+        addition a1 = new addition();
+        a1.add(1,2,7);
+        a1.add(1.2,2.6);
+        a1.add(1,2);
+    }
+}
+```
+formal argument args defined during creation of function
+actual argument args passed during calling of function
+they have to be in same type and same number hence compile time
+
+widdeing or implicit conversion is automatically converting int to float but no vice versa because of range
+narrowing or explicit conversion is not automatic hence use type casting
+
+```java
+class Parent {
+    public void doTask(){
+        System.out.println("M child will complete task");
+    }
+}
+class Child extends Parent {
+    public void display(){
+        System.out.println("I am child of my parent ");
+    }
+    public void doTask(){
+        System.out.println("I am busy in my java class");
+    }
+}
+class Main{
+    public static void main(){
+        Child c1 = new Child();
+        c1.doTask();
+        c1.display();
+    }
+}
+```
+Access modifiers with increasing criteria
+private -> default -> protected -> public
+widening can only convert from lower to higher priority form child to parent
+```java
+super.dotask();
+```
+# 24 sept
+
+Abstract class
+---
+class can have 0 or any number of abstract method
+If an abstract class have number of abstract method these method muct be override in its child class
+abstract class must be inherited by another class
+impossible to create object of abstract class
+we can create abstract mehtod by not having body of the method
+we must make abstract method in child as well
+```java
+abstract class Animal{
+    public void walking(){
+        System.out.print("All animals can walk")
+    }
+    public abstract void eating(){
+
+    }
+}
+class Cow extends Animal{
+    public void eating(){
+        System.out.print("Cow is eating grass")
+    }
+    public void display(){
+        System.out.print("Cow is our mother")
+    }
+}
+class Main(){
+    public static void main{
+    Cow c1 = new Cow();
+    c1.display();
+    c1.walking();
+    }
+}
+```
+abstract class Data
+- private String st
+- Constructor
+- public void reverse()
+- public abstract void commonchar()
+- public abstract void caseChange()
+class Mydata extends data
+- private string s2
+- constructor
+- caseChange
+- commonchar`
+```java
+abstract class Data{
+    private String s1;
+    public Strings(String s1){
+        this.s1;
+    }
+
+    public void reverse(){
+
+    }
+    public abstract void commonChar(){
+
+    }
+    public abstract void caseChange(){
+
+    }
+}
+class Mydata extends Data{
+    private String s2;
+    public Strings(String s2){
+        this.s2;
+    }
+    public abstract void commonChar(){
+        System.out.println("this is commonChar");
+    }
+    public abstract void caseChange(){
+        System.out.println("this is commonChar");
+    }
+}
+class Main{
+    public static void main(Strings args[]){
+    Mydata c1 = new Mydata();
+    c1.reverse();
+    c1.commonChar();
+    c1.caseChange();
+    }
+}
+```
+# 27 sept
+### exception handling
+- Error is abnormal condition in the program which force the program to terminate without computing when it occurs
+- Error are of two types
+- Compile and runtime error
+
+
+throwable are of two types
+Error and exception
+Exception happens only at run time
+Exceotion is a super class whereas specific type of exception are child class
+Exception are of two types
+Checked and Unchecked
+
+Checked Exception
+These exception occur at run time but at compile time compiler gives warning to handel and declare these exceptions
+Checked exception includes IO exception and SQL exception
+Unchecked Exception
+about these exceptions compiler does not know anything
+Unchecked exception includes ArrayIndexOutOfBounds exception and Arithematic exception
+
+```java
+try{
+//code to generate error
+}
+catch{
+//code to handel exception
+}
+finally{
+//code to be executed in both condition
+}
+```
+
+Throw -> to generate explicit exception
+Throws -> to declare exception
+
+```java
+class ExceptionTest{
+    public void test(int a,int b){
+        try{
+            int arr[] = {a,b,c};
+            System.out.println(arr[4]);//ArrayIndexOutOfBounds
+            int z = a/b;//arithematic errro
+            System.out.print("Result: "+z);
+        }
+        catch(ArithematicException e){
+            System.out.println("Problem: "+e.getMessage());
+        }
+        catch(Exception e){
+            System.out.println("Problem another exception");
+        }
+    }
+}
+class Main{
+    public static void main(String[] args){
+        ExceptionTest t1 = new ExceptionTest();
+        t1.test(25,0)
+    }
+}
 ```

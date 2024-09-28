@@ -1,4 +1,5 @@
 # gradient_descent
+
 ```python
 import pandas as pd
 import numpy as np
@@ -41,8 +42,21 @@ mse = squared_error.sum()/n
 print(mse)
 rmse = np.sqrt(mse)
 print(rmse)
-
 ```
+# encoding
+```python
+from sklearn.preprocessing import LabelEncoder
+import numpy as np
+data=['Red','Green','Blue','Green','Red']
+label_encoder=LabelEncoder()
+encoded_data=label_encoder.fit_transform(data)
+print(encoded_data)
+import pandas as pd
+data=pd.DataFrame({'Color':['Red','Green','Blue','Green','Red']})
+one_hot_encoded=pd.get_dummies(data,columns=['Color'])
+print(one_hot_encoded)
+```
+
 # aircraft
 ```python
 import pandas as pd
@@ -55,5 +69,4 @@ from sklearn.metrics import mean_squared_error, r2_score
 data = pd.read_csv('aircraft.csv')
 print(data)
 data.isnull().sum()
-
 ```

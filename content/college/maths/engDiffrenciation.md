@@ -110,6 +110,7 @@ $$
 ---
 2. two variables
 
+
 # taylor series
 1. let f(x+h) be a function of h (x being independent of h)
 $$\large
@@ -207,3 +208,22 @@ rt-s^{2}\gt 0\;\&\;r\lt 0\;\to maxima\\
 rt-s^{2}\lt 0\to \text{no extreme values}\\
 \end{align}
 $$
+### lanrange
+
+It is used to find the maximum and minimum values of a function of three or more variables when the variables are not independent but are connected by some given relation 
+
+the lanrange function is
+$F(x,y,z)=f(x,y,z)+\lambda\phi(x,y,z)$
+---
+$$\large
+\begin{align}
+(\frac{\delta f}{\delta x}+\lambda\frac{\delta \phi}{\delta x})dx+
+(\frac{\delta f}{\delta y}+\lambda\frac{\delta \phi}{\delta y})dy+
+(\frac{\delta f}{\delta z}+\lambda\frac{\delta \phi}{\delta z})dz&=0\\
+\frac{\delta f}{\delta x}+\lambda\frac{\delta \phi}{\delta x}=0;
+\frac{\delta f}{\delta y}+\lambda\frac{\delta \phi}{\delta y}=0;
+\frac{\delta f}{\delta z}+\lambda\frac{\delta \phi}{\delta z}=0;
+\end{align}
+$$
+
+

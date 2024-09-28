@@ -17,7 +17,7 @@ The information transfer from one register to another register is designated in 
 
     1. Instruction register (IR)
     2. Program counter (PC)
-    3.  General-purpose register (R0 – Rn-1)
+    3.  General-purpose register (R0 -> Rn-1)
     4.  Memory address register (MAR)
     5.  Memory data register (MDR)
 
@@ -75,7 +75,4 @@ The write operation transfers the content of a data register like R1 to memory w
 This causes a transfer of information from R1 into the memory word M selected by the address in AR.
 
 ---
-Binary (Array) Multiplier:
----
-Multiplication of binary numbers is performed in the same way as multiplication of decimal numbers.
-The multiplicand is multiplied by each bit of the multiplier, starting from the least significant bit.
+

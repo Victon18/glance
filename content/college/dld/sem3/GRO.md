@@ -27,16 +27,16 @@ by selecting various components in the system
 Encoding of register selection fields
 ---
 
-|Binary Code|SELA|SELB|SELD|
-|-|Input|Input|Output|
-|-|-|-|-|
-|001|R1|R1|R1|
-|010|R2|R2|R2|
-|011|R3|R3|R3|
-|100|R4|R4|R4|
-|101|R5|R5|R5|
-|110|R6|R6|R6|
-|111|R7|R7|R7|
+| Binary Code | SELA      | SELB      | SELD       |
+| ----------- | --------- | --------- | ---------- |
+| -           | **Input** | **Input** | **Output** |
+| 001         | R1        | R1        | R1         |
+| 010         | R2        | R2        | R2         |
+| 011         | R3        | R3        | R3         |
+| 100         | R4        | R4        | R4         |
+| 101         | R5        | R5        | R5         |
+| 110         | R6        | R6        | R6         |
+| 111         | R7        | R7        | R7         |
 
 # ALU Unit
 Encoding of ALU operations

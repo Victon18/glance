@@ -75,4 +75,42 @@ No assumption related to hardware. Assume that each process executes at a nonzer
 No assumption concerning relative speed of the N processes
 
 # Peterson's solution
+#### first solution
+turn variable
+
+|P0|P1|
+|-|-|
+|While(1){|While(1){|
+|While(turn!=0);|While(turn!=1);|
+|Critical Section|Critical Section|
+|Turn = 1;|Turn = 0;|
+|Remainder Section}|Remainder Section}|
+
+#### second solution
+flag variable
+
+|P0|P1|
+|-|-|
+|While(1){|While(1){|
+|`Flag[0]=True`|`Flag[1]=True`|
+|`While (Flag[1]);`|`While (Flag[0]);`|
+|Critical Section|Critical section|
+|`Flag[0]=False;`|`Flag[1]=False;`|
+|Remainder Section}|Remainder Section}|
+
+#### third solution
+turn variable
+flag variable
+
+|P0|P1|
+|-|-|
+|While(1){|While(1){|
+|`Flag[0]=True`|`Flag[1]=True`|
+|Turn=1;|Turn=0;|
+|`While (turn==1&&Flag[1]);`|`While (turn==0&&Flag[0]);`|
+|Critical Section|Critical section|
+|`Flag[0]=False;`|`Flag[1]=False;`|
+|Remainder Section}|Remainder Section}|
+
+# Semaphore
 

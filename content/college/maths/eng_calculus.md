@@ -93,6 +93,7 @@ x\frac{\delta u}{\delta x}+y\frac{\delta u}{\delta y}=n\frac{F(u)}{F'(u)}
 $$
 ---
 3. second derivative
+
 $\phi(u)=n\frac{F(u)}{F'(u)}$
 $$\large
 \begin{align}
@@ -108,7 +109,13 @@ $$\large
 \frac{du}{dt}=\frac{\delta u}{\delta x}\cdot\frac{dx}{dt}+\frac{\delta u}{\delta y}\cdot\frac{dy}{dt}
 $$
 ---
-2. two variables
+1. single variable
+if u is composite function of t, defined by relations $u=f(x,y);x=\phi(u,v),y=\psi(u,v)$
+$$\large
+\begin{align}
+\frac{dz}{du}=\frac{\delta z}{\delta x}\cdot\frac{dx}{du}+\frac{\delta z}{\delta y}\cdot\frac{dy}{du}\\\frac{dz}{dv}=\frac{\delta z}{\delta x}\cdot\frac{dx}{dv}+\frac{\delta z}{\delta y}\cdot\frac{dy}{dv}
+\end{align}
+$$
 
 # taylor series
 1. let f(x+h) be a function of h (x being independent of h)
@@ -167,3 +174,23 @@ $$\LARGE
 $$
 
 
+### maxima and minima 
+
+we find extrema at critical points taking x as 0
+extrema of single variable function
+
+1. if  $\large \frac{d^{2}y}{dx^{2}}\gt 0\to\;maxima$ 
+2. if  $\large \frac{d^{2}y}{dx^{2}}\lt 0\to\;minima$ 
+3. if  $\large \frac{d^{2}y}{dx^{2}}= 0\to\;\text{neither maxima nor minima}$ 
+ 
+extrema of double variable function
+
+- $\large p=\frac{\delta z}{\delta x}$
+- $\large q=\frac{\delta z}{\delta y}$
+- $\large r=\frac{\delta^{2} z}{\delta x^{2}}$
+- $\large t=\frac{\delta^{2} z}{\delta y^{2}}$
+- $\large s=\frac{\delta^{2} z}{\delta x\delta y}$
+
+1. if  $\large rt-s^{2}\gt0\;\&\;r\gt0\to\;minima$ 
+2. if  $\large rt-s^{2}\gt0\;\&\;r\lt0\to\;maxima$ 
+3. if  $\large rt-s^{2}\lt0\to\;\text{no extreme values}$

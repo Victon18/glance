@@ -1,7 +1,7 @@
 # process
 - Program becomes process when an executable file is loaded into memory
 - A process contains memory area, local, global variable, CPU registers, Program Counters
-- Process requires a set of resources, including a processors, program counters, registers, registers to perform its functions
+- Process requires a set of resources, including a processors, program counters, registers to perform its functions
 - Multiple process may associate with one program
 - Program is passive entity stored on disk (executable file); process is active
 
@@ -18,9 +18,30 @@
 
 # PCB
 Each process is represented in the OS by a PROCESS CONTROL BLOCK (PCB)- also called Task control Block.
-- **Program Counter** -> Current activity including program counter, processor registers
+When the process makes a transition from one state to another, the operating system must update information in the process’s PCB.
+A process control block (PCB) contains information about the process, i.e. registers, quantum, priority, etc.
+The process table is an array of PCBs, which logically contains a PCB for all of the current processes in the system.
 
-![[pcb.png|400]]
+Parts of program counter
+-----
+
+- Pointer: It is a stack pointer that is required to be saved when the process is switched
+from one state to another to retain the current position of the process.
+
+- Process state: It stores the respective state of the process.
+
+- Process number: Every process is assigned a unique id known as process ID or PID
+which stores the process identifier.
+
+- Program counter: Program Counter stores the counter, which contains the address of
+the next instruction that is to be executed for the process.
+
+- CPU Register: Registers in the PCB, it is a data structure. When a processes is running and it’s time slice expires, the current value of process specific registers would be stored in the PCB and the process would be swapped out. When the process is scheduled to be run, the register values is read from the PCB and written to the CPU registers. This is the main purpose of the registers in the PCB.
+- Memory Allocations: This field contains the information about memory management system used by the operating system. This may include page tables, segment tables, etc.
+- List of Open files: This information includes the list of files opened for a process.
+
+
+![[pcb.png|300]]
 # process state diagram
 
 ## 5 state
