@@ -47,3 +47,30 @@ Disadvantages
 - Processes with larger burst time have poor response time.
 
 ---
+# Priority
+In Priority Scheduling,
+    - Out of all the available processes, CPU is assigned to the process having the highest priority.
+    -  In case of a tie, it is broken by FCFS Scheduling.
+Priority scheduling are of two types
+    - Non-preemptive mode
+    - Preemptive mode
+
+Advantages
+    - It considers the priority of the processes and allows the important processes to run first.
+    - Priority scheduling in preemptive mode is best suited for real time operating system.
+ 
+Disadvantages
+    - Processes with lesser priority may starve for CPU.
+    - There is no idea of response time and waiting time.
+Notes
+    - The waiting time for the process having the highest priority will always be zero in preemptive mode.
+    - The waiting time for the process having the highest priority may not be zero in non-preemptive mode. 
+    - Priority scheduling in preemptive and non-preemptive mode behaves exactly same under following conditions
+        -  The arrival time of all the processes is same
+        -  All the processes become available
+# Round robin
+
+- Round Robin is a CPU scheduling algorithm where each process is assigned a fixed time slot in a cyclic way.
+- It is simple, easy to implement, and starvation-free as all processes get fair share of CPU.
+- It is preemptive as processes are assigned CPU only for a fixed slice of time at most.
+- The disadvantage of it is more overhead of context switching. 

@@ -78,26 +78,82 @@ No assumption concerning relative speed of the N processes
 #### first solution
 turn variable
 
-|P0|P1|
-|-|-|
-|While(1){|While(1){|
-|While(turn!=0);|While(turn!=1);|
-|Critical Section|Critical Section|
-|Turn = 1;|Turn = 0;|
-|Remainder Section}|Remainder Section}|
+| P0                 | P1                 |
+| ------------------ | ------------------ |
+| While(1){          | While(1){          |
+| While(turn!=0);    | While(turn!=1);    |
+| Critical Section   | Critical Section   |
+| Turn = 1;          | Turn = 0;          |
+| Remainder Section} | Remainder Section} |
 
+Dry runs
+```C
+int turn=0;
+//process 1
+while(1){
+    while(turn!=0){}//false
+    //Critical Section
+    turn = 1; //turn=1
+}
+// process 2
+while(1){
+    while(turn!=1){}//false
+    //Critical Section
+    turn = 0; //turn=0
+}
+```
+It follows mutual exclusion but not progress
+ie process 2 is not participating
+```C
+int turn=0;//turn = 1
+//process 1
+while(1){
+    while(turn!=0){}//1.false //2.true(not able to access CS)
+    //Critical Section
+    turn = 1; //turn=1
+}
+```
 #### second solution
 flag variable
 
-|P0|P1|
-|-|-|
-|While(1){|While(1){|
-|`Flag[0]=True`|`Flag[1]=True`|
-|`While (Flag[1]);`|`While (Flag[0]);`|
-|Critical Section|Critical section|
-|`Flag[0]=False;`|`Flag[1]=False;`|
-|Remainder Section}|Remainder Section}|
+| P0                 | P1                 |
+| ------------------ | ------------------ |
+| While(1){          | While(1){          |
+| `Flag[0]=True`     | `Flag[1]=True`     |
+| `While (Flag[1]);` | `While (Flag[0]);` |
+| Critical Section   | Critical section   |
+| `Flag[0]=False;`   | `Flag[1]=False;`   |
+| Remainder Section} | Remainder Section} |
 
+Dry runs
+```C
+int Flag[] = {false,false};
+//process 1
+while(1){
+    flag[0]=true;//flag[ture,false]
+    while(flag[1]){}//false
+        //Critical Section
+    flag[0]=false; //flag[false,false]
+}
+// process 2
+while(1){
+    flag[1] = true;//flag[false,true]
+    while(flag[0]){}//false
+        //Critical Section
+    flag[1]=false; //flag[false,false]
+}
+```
+It follows mutual exclusion
+```C
+while(1){
+    flag[0]=true;//flag[ture,false]
+    while(flag[1]){}//false
+        //Critical Section
+    flag[0]=false; //flag[false,false]
+}
+```
+It follows progress as well
+but there exists a deadlock
 #### third solution
 turn variable
 flag variable
@@ -112,5 +168,150 @@ flag variable
 |`Flag[0]=False;`|`Flag[1]=False;`|
 |Remainder Section}|Remainder Section}|
 
-# Semaphore
+Dry runs
+```C
+int turn = 0;
+int Flag[] = {false,false};
+//process 1
+while(1){
+    flag[0]=true;//flag[ture,false]
+    turn = 1; // turn = 1
+    while(turn==1&&flag[1]){}//false
+        //Critical Section
+    flag[0]=false; //flag[false,false]
+}
+// process 2
+while(1){
+    flag[1] = true;//flag[false,true]
+    turn = 0; //turn = 0
+    while(turn==0&&flag[0]){}//false
+        //Critical Section
+    flag[1]=false; //flag[false,false]
+}
+```
+It follows mutual exclusion
+```C
+while(1){
+    flag[0]=true;//flag[ture,false]
+    turn = 1; // turn = 1
+    while(turn==1&&flag[1]){}//false
+        //Critical Section
+    flag[0]=false; //flag[false,false]
+}
 
+```
+It follows progress as well and there is no deadlock condition
+But these work for only two solution
+# Semaphore
+- this solution works for n number of concurrent program
+- Semaphore is simply an integer variable which is non-negative and shared between threads
+- This variable is used for critical section in the multiprocessing environment.
+- It uses two basic function wait(S) and Signal(S).
+
+| Wait         | Signal     |
+| ------------ | ---------- |
+| wait(S):     | signal(S): |
+| while(S<=0): | S++;       |
+| S--;         | --         |
+
+Shared data:
+	   semaphore mutex;
+        mutex = 1; (Initially)
+Process Pi:
+```C
+do {
+    wait(mutex);
+    //critical section
+ 	signal(mutex);
+    //remainder section
+} while (1);
+```
+
+## Two Types of Semaphores
+
+- Binary Semaphore
+---
+This is also known as mutex lock.
+It can have only two values –> 0 and 1.
+Its value is initialized to 1.
+It is used to implement the solution of critical section problem with multiple processes.
+
+---
+- Counting Semaphore
+---
+Its value can range over an unrestricted domain.
+It is used to control access to a resource that has multiple instances
+Can implement a counting semaphore S as a binary semaphore.
+
+---
+## Classic problem
+
+#### Producer Consumer with Bounded-Buffer Problem
+---
+- We have a buffer of fixed size.
+- A producer can produce an item and can place in the buffer.
+- A consumer can pick items and can consume them.
+- We need to ensure that when a producer is placing an item in the buffer,
+    then at the same time consumer should not consume any item.
+- In this problem, buffer is the critical section.
+- To solve this problem, two counting semaphores – Full and Empty.
+- “Full” keeps track of number of items in the buffer at any given time
+- “Empty” keeps track of number of unoccupied slots.
+
+
+Shared data : semaphore full, empty, mutex;
+Initially:  full = 0, empty = n, mutex = 1
+
+| Writing             | Reading                    |
+| ------------------- | -------------------------- |
+| do{                 | do{                        |
+| produce an item     | wait(full);                |
+| wait(empty);        | wait(mutex);               |
+| wait(mutex);        | remove an item from buffer |
+| add nextp to buffer | signal(mutex);             |
+| signal(empty);      | Signal(empty);             |
+| signal(mutex);      | consume item in nextc      |
+| }while(1);          | }while(1);                 |
+
+---
+#### Readers and Writers Problem
+anyone can read value even in critical section
+But no-one can write when someone is writing
+
+semaphore mutex, write;
+Initially mutex = 1, write = 1, read-count = 0
+
+| Write          | Read               |
+| -------------- | ------------------ |
+| wait(write);   | wait(mutex):       |
+| writing..      | readcount++;       |
+| signal(write); | if (readcount==1)  |
+| -              | wait(write);       |
+| -              | signal(mutex);     |
+| -              | reading...         |
+| -              | wait(mutex);       |
+| -              | readcount--;       |
+| -              | if (readcount==0): |
+| -              | signal(write);     |
+| -              | signal(read);      |
+
+---
+#### Dining-Philosophers Problem
+Shared data
+		semaphore `chopstick[5]`;
+Initially all values are 1
+
+```C
+do {
+    wait(chopstick[i]);
+    wait(chopstick[(i+1) % 5]);
+
+	#eat
+
+	signal(chopstick[i]);
+	signal(chopstick[(i+1) % 5]);
+
+    #think
+
+	} while (1);
+```
