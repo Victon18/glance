@@ -62,7 +62,7 @@ for C:
 | **$\overline{A}$** | -                                   | -                        | 1         | -                    |
 | **A**              | -                                   | 1                        | 1         | 1                    |
 
-C = AB + B$C_{in}$ + $C_{in}A$
+$C = AB + B C_{in} + C_{in}A$
 
 ![[FA.png]]
 
@@ -72,19 +72,19 @@ C = AB + B$C_{in}$ + $C_{in}A$
 - it subtract two bits number together
 - 2 inputs(A, B), 2 output(Difference, Borrow)
 
-|A|B|D|b|
-|-|-|-|-|
-|0|0|0|0|
-|0|1|1|1|
-|1|0|1|0|
-|1|1|0|0|
+| A   | B   | D   | b   |
+| --- | --- | --- | --- |
+| 0   | 0   | 0   | 0   |
+| 0   | 1   | 1   | 1   |
+| 1   | 0   | 1   | 0   |
+| 1   | 1   | 0   | 0   |
 
 for D:
 
-|**A\B**|**$\overline{B}$**|**B**|
-|-|-|-|
-|**$\overline{A}$**|-|1|
-|**A**|1|-|
+| **A\B**            | **$\overline{B}$** | **B** |
+| ------------------ | ------------------ | ----- |
+| **$\overline{A}$** | -                  | 1     |
+| **A**              | 1                  | -     |
 
 $\large S = A \oplus B$
 
@@ -104,23 +104,23 @@ C = $\overline{A}$.B
 - Thus, full adder has the ability to perform the subtraction: of three bits.
 - 3 input (A, B, $B_{in}$) 2 output (Borrow $B_{out}$, Difference)
 
-|A|B|$B_{in}$|$B_{out}$|D|
-|-|-|-|-|-|
-|0|0|0|0|0|
-|0|0|1|1|1|
-|0|1|0|1|1|
-|0|1|1|1|0|
-|1|0|0|0|1|
-|1|0|1|0|0|
-|1|1|0|0|0|
-|1|1|1|1|1|
+| A   | B   | $B_{in}$ | $B_{out}$ | D   |
+| --- | --- | -------- | --------- | --- |
+| 0   | 0   | 0        | 0         | 0   |
+| 0   | 0   | 1        | 1         | 1   |
+| 0   | 1   | 0        | 1         | 1   |
+| 0   | 1   | 1        | 1         | 0   |
+| 1   | 0   | 0        | 0         | 1   |
+| 1   | 0   | 1        | 0         | 0   |
+| 1   | 1   | 0        | 0         | 0   |
+| 1   | 1   | 1        | 1         | 1   |
 
 for S:
 
-|**A\B$B_{in}$**|**$\overline{B}\overline{B_{in}}$**|**$\overline{B}B_{in}$**|$BB_{in}$|$B\overline{B_{in}}$|
-|-|-|-|-|-|
-|**$\overline{A}$**|-|1|-|1|
-|**A**|1|-|1|-|
+| **A\B$B_{in}$**    | **$\overline{B}\overline{B_{in}}$** | **$\overline{B}B_{in}$** | $BB_{in}$ | $B\overline{B_{in}}$ |
+| ------------------ | ----------------------------------- | ------------------------ | --------- | -------------------- |
+| **$\overline{A}$** | -                                   | 1                        | -         | 1                    |
+| **A**              | 1                                   | -                        | 1         | -                    |
 
 $\large S = A \oplus B \oplus B_{in}$
 
@@ -132,7 +132,7 @@ for C:
 | **$\overline{A}$** | -                                   | 1                        | 1         | 1                    |
 | **A**              | -                                   | -                        | 1         | -                    |
 
-$B_{out}$ = $\overline{A}$B + ($\overline{A}B)B_{in}$
+$B_{out} = \overline{A}B + \overline{(A\oplus B)}B_{in}$
 
 ![[FS.png]]
 # Binary Multiplier

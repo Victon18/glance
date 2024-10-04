@@ -76,7 +76,7 @@ No assumption concerning relative speed of the N processes
 
 # Peterson's solution
 #### first solution
-turn variable
+turn variable =0;
 
 | P0                 | P1                 |
 | ------------------ | ------------------ |
@@ -85,6 +85,7 @@ turn variable
 | Critical Section   | Critical Section   |
 | Turn = 1;          | Turn = 0;          |
 | Remainder Section} | Remainder Section} |
+|                    |                    |
 
 Dry runs
 ```C
@@ -115,6 +116,7 @@ while(1){
 ```
 #### second solution
 flag variable
+it has two index only.
 
 | P0                 | P1                 |
 | ------------------ | ------------------ |
@@ -208,6 +210,16 @@ But these work for only two solution
 - This variable is used for critical section in the multiprocessing environment.
 - It uses two basic function wait(S) and Signal(S).
 
+Advantages of Semaphores
+- Semaphores allow only one process into the critical section.
+- There is no resource wastage because of busy waiting in semaphores as processor time is not wasted unnecessarily to check if a condition is fulfilled to allow a process to access the critical section.
+- Semaphores are implemented in the machine independent code of the microkernel. So they are machine independent.
+Disadvantages of Semaphores
+- Semaphores are complicated so the wait and signal operations must be implemented in the correct order to prevent deadlocks.
+- Semaphores are impractical for last scale use as their use leads to loss of modularity.
+- This happens because the wait and signal operations prevent the creation of a structured layout for the system.
+- Semaphores may lead to a priority inversion where low priority processes may access the critical section first and high priority processes later.
+
 | Wait         | Signal     |
 | ------------ | ---------- |
 | wait(S):     | signal(S): |
@@ -269,8 +281,8 @@ Initially:  full = 0, empty = n, mutex = 1
 | wait(empty);        | wait(mutex);               |
 | wait(mutex);        | remove an item from buffer |
 | add nextp to buffer | signal(mutex);             |
-| signal(empty);      | Signal(empty);             |
-| signal(mutex);      | consume item in nextc      |
+| signal(mutex);      | Signal(empty);             |
+| signal(empty);      | consume item in nextc      |
 | }while(1);          | }while(1);                 |
 
 ---
@@ -283,17 +295,17 @@ Initially mutex = 1, write = 1, read-count = 0
 
 | Write          | Read               |
 | -------------- | ------------------ |
-| wait(write);   | wait(mutex):       |
+| wait(write);   | wait(mutex);       |
 | writing..      | readcount++;       |
-| signal(write); | if (readcount==1)  |
+| signal(write); | if (readcount>0)   |
 | -              | wait(write);       |
 | -              | signal(mutex);     |
 | -              | reading...         |
 | -              | wait(mutex);       |
 | -              | readcount--;       |
+| -              | signal(read);      |
 | -              | if (readcount==0): |
 | -              | signal(write);     |
-| -              | signal(read);      |
 
 ---
 #### Dining-Philosophers Problem
@@ -315,3 +327,9 @@ do {
 
 	} while (1);
 ```
+
+there occurs a deadlock condition in this solution when all philosopher decides to eat together they pick up left fork first simultaneously and gets stuck in deadlock
+to avoid this we have 3 solutions
+- allow only 4 to sit
+- allow them to pick only if the chopsticks are free
+- make odd ones pick left first and even ones right first

@@ -15,6 +15,7 @@
 - there is a massive delay in calculations with larger bits.
 - Each of the full adder takes time to calculate and generate carry
 - the last full adder has to wait for the previous adder's generated carry
+	**NOTE** -> DIAGRAM DOESN'T HAVE XOR GATES
 
 ![[ripAdder.png]]
 
@@ -52,7 +53,7 @@ Note -> for subtraction we assume that subtractor is greater than subtractent
 $$ \Large
 \begin {align}
 C_{n+1} &= G_{n}+C_{n}P_{n}\\
-C_{1} &= G_{0}\\
+C_{1} &= G_{0}+C_{0}P_{0}\\
 C_{2} &= G_{1}+G_{0}P_{1}\\
 C_{3} &= G_{2}+G_{1}P_{2}+G_{0}P_{1}P_{2}\\
 C_{4} &= G_{3}+G_{2}P_{3}+G_{1}P_{2}P_{3}+G_{0}P_{1}P_{2}P_{3}\\

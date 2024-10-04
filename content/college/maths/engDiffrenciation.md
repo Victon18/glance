@@ -7,17 +7,23 @@ $$
 $$\large
 y_{n}=m(m-1)(m-2)(m-3)\dots(m-n+1)(ax+b)^{m-n}\cdot a^{n}
 $$
-3. $\large \frac{1}{ax+b}[x\neq-\frac{b}{a}]$.
+3. $\large \frac{1}{(ax+b)^{m}}[x\neq-\frac{b}{a}]$.
 $$\large
-y_{n}=\frac{(-1)^{n}n!a^{n}}{(ax+b)^{n+1}}
+y_{n}=(-1)^{n}\frac{(m+n-1)!}{(m-1)!}\frac{a^n}{(ax+b)^{m+n}}
 $$
 4. $\large \log(ax+b)$.
 $$\large
 y_{n}=\frac{(-1)^{n-1}(n-1)!a^{n}}{(ax+b)^{n}}
 $$
-5. $\large a^{mx}$.
+5. $\large a^{mx}$
 $$
 y_{n}=m^{n}\cdot a^{mx}(\log a)^{n}
+$$
+
+6. $\large e^{mx}$
+
+$$
+y_{n}=m^{n}\cdot e^{mx}
 $$
 6. $\large \sin(ax+b)$.
 $$\large
@@ -28,12 +34,15 @@ $$\large
 y_{n} = a^{n}\cos[ax+b+n\frac{\pi}{2}]
 $$
 8. the nth differential co-efficient of $\large e^{ax}\sin(bx+C)$
+$\large r = \sqrt{a^{2}+b^{2}};\phi=tan^{-1}\frac{b}{a}$
 $$\large
-y_{n} = (a^{2}+b^{2})^{\frac{n}{2}}e^{ax}\cdot\sin[bx+c+n\cdot\tan^{-1}\frac{b}{a}]
+y_{n} = r^{n}e^{ax}\cdot\sin[bx+c+n\cdot\phi]
 $$
+
 9. the nth differential co-efficient of $\large e^{ax}\cos(bx+C)$
+$\large r = \sqrt{a^{2}+b^{2}};\phi=tan^{-1}\frac{b}{a}$
 $$\large
-y_{n} = (a^{2}+b^{2})^{\frac{n}{2}}e^{ax}\cdot\cos[bx+c+n\cdot\tan^{-1}\frac{b}{a}]
+y_{n} = r^{n}e^{ax}\cdot\cos[bx+c+n\cdot\phi]
 $$
 # partial derivative
 ### first order partial derivative

@@ -57,7 +57,9 @@ $$
 ----
 
 $$\LARGE
-\int_{0}^{\frac{\pi}{2}}\sin^{m}\theta\cos^{n}\theta\;d\theta
+
+\frac{\Gamma(\frac{p+1}{2})\Gamma(\frac{q+1}{2})}{2\Gamma(\frac{p+q+2}{2}) } 
+= \int_{0}^{\frac{\pi}{2}}\sin^{p}\theta\cos^{q}\theta\;d\theta
 
 $$
 

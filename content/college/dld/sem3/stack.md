@@ -58,6 +58,7 @@ MOV X,R1 : $\large X\to M[R_{1}]$
 
 ### 1 address
 X=(A+B)(C+D)
+
 LOAD(AC)
 AC <- `M[A]`
 Add B AC <- AC+`M[B]`
@@ -76,3 +77,68 @@ Add TOS <- C+D
 Mul TOS <- (A+B)(C+D)
 POP(X) TOS <- `M[x]`
 
+# Addressing modes
+* Specifies a rule for interpreting or modifying the address field of the
+instruction (before the operand is actually referenced)
+* Variety of addressing modes
+	- to give programming flexibility to the user
+	- to use the bits in the address field of the
+## TYPES OF ADDRESSING MODES
+
+Implied Mode
+---
+Address of the operands are specified implicitly in the instruction
+- No need to specify address in the instruction
+- Ex: CMA(Complement the accumulator)
+---
+Immediate Mode
+---
+Instead of specifying the address of the operand, the instruction contains the operand itself.
+
+---
+Direct Address Mode
+---
+Instruction specifies the memory address which can be used directly to get the operand.
+
+---
+Indirect Addressing Mode
+---
+The address field of an instruction specifies the address of a memory location that contains the address of the operand.
+
+---
+Register Mode
+---
+Address specified in the instruction is the register address
+
+---
+Register Indirect Mode
+---
+Instruction specifies a register which contains the memory address of the operand
+
+---
+Auto-increment
+---
+Same as the Register Indirect, but when the address in the register is used to access memory, the value in the register is incremented after the execution of the
+instruction.
+
+Auto-decrement 
+---
+Same as the Register Indirect, but when the address in the register is used to access memory, the value in the register is decremented before the execution of the instruction.
+
+---
+Relative Addressing Modes
+---
+The Address fields of an instruction specifies the part of the address (abbreviated address) which can be used along with a PC to calculate the address of the operand
+EA = PC + IR(address)
+- Address field of the instruction is short
+- Large physical memory can be accessed with a small number of address bits
+
+Indexed Addressing Mode
+---
+XR: Index Register:
+- EA = XR + IR(address)
+---
+Base Register Addressing Mode
+---
+BAR: Base Address Register:
+- EA = BAR + IR(address)
