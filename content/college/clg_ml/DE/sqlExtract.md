@@ -34,16 +34,20 @@ conn_str{
     #connection string
 }
 try:
-    conn = pydoc.connect(conn_str)
+    conn = pyodbc.connect(conn_str)
     print ("Done")
     cursor= conn.cursor()
     insert_query = """
 
         """
     data =('pawan','12','mathura','10-01-1900')
-    cursor.execute()
-except pydoc.Error as e:
+    cursor.execute(insert_query,data)
+except pyodbc.Error as e:
     print("ERROR",e)
 finally:
+    if cursor:
+        coursor.close()
+    if conn:
+        conn.close()
 
 ```
