@@ -427,3 +427,59 @@ class Main{
     }
 }
 ```
+
+# 21 Oct
+
+## collection
+### Set interface
+- `TreeSet` and `Hashset` are implimentation classes
+### List interface
+
+- List is used to store duplicate element also unlike set
+-  It is the most useable collection in java
+- `ArrayList`, `LinkedList`, and `Vector` are implimenting classes of list interface.
+- vector is synchronized, and uses only one threas at a time
+- array list has fixed size, can use multiple threads, non-sorted
+- linkedlist is generally used from in between .
+
+```java
+// ArrayList
+public class TestArrayList{
+    public static void main(String[] args){
+        ArrayList a1 = new ArrayList();
+        a1.add('Mathura');
+        a1.add('Hardoi');
+        a1.add('Agra');
+        a1.add('Hardoi');
+        a1.add('Delhi');
+        System.out.println("List: "+a1);
+        a1.remove("Hardoi")
+    }
+}
+```
+collections class
+```java
+public class TestArrayList{
+    public static void main(String[] args){
+        ArrayList a1 = new ArrayList();
+        a1.add('Mathura');
+        a1.add('Hardoi');
+        a1.add('Agra');
+        a1.add('Hardoi');
+        a1.add('Delhi');
+        System.out.println("List: "+a1);
+        a1.remove("Hardoi")
+        Collections.sort(a1);
+        System.out.println("List: "+a1);
+        int binSearch = collections.binarySearch(a1,'Hodal');
+        System.out.println("List: "+a1);
+        int binSearch = collections.synchronizedList(a1,'Hodal');
+        System.out.println("List: "+a1);
+    }
+}
+```
+
+### Map interface
+- It is used to store element in key values pair
+- `HashMap` and `PreMap` are implimenting classes .
+

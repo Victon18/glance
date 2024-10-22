@@ -59,8 +59,8 @@ Structure:
 ## Snowflake Schema:
 An extension of the star schema where dimension tables are normalized into multiple related tables.
 Structure:
-    - Fact Table: Central table with quantitative data.
-    - Normalized Dimension Tables: Dimension tables broken down into additional related table
+- Fact Table: Central table with quantitative data.
+- Normalized Dimension Tables: Dimension tables broken down into additional related table
 
 ## Fact Constellation
 Schema

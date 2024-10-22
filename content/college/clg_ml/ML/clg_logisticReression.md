@@ -160,7 +160,7 @@ $$\large
 \frac{\text{number of correct predictions}}{\text{total number of predictions}}
 $$
 
-To use accuray effectively you need to set a baseline.
+To use accuracy effectively you need to set a baseline.
 
 This baseline accuracy can be found using a dummy classifier.
 
@@ -314,4 +314,35 @@ metrics.plot_confusion_matrix(model,X_test,Y_test)
 plt.show()
 # you evaluated the model using test data where the accuracy score did not improve much.
 # You also evaluated the model using roc_auc_score from sklearn.metrics.
+```
+---
+```python
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+
+data = pd.read_csv('/content/db.csv')
+print(data)
+x = data.drop(columns=['loyalty'])
+y = data['loyalty']
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=2)
+model = LogisticRegression()
+model.fit(x_train, y_train)
+y_pred = model.predict(x_test)
+print(y_pred)
+y_pred1 = model.predict(np.array([60,26342,25,27,1.924734272,1]).reshape(1,-1))
+print(y_pred1)
+accuracy=accuracy_score(y_test,y_pred)
+print(accuracy)
+conf=confusion_matrix(y_test,y_pred)
+print(conf)
+class_report=classification_report(y_test,y_pred)
+print(class_report)
+from sklearn.model_selection import cross_val_score
+cv_score = cross_val_score(model, x, y, cv=5)
+print(cv_score)
+print(np.mean(cv_score))
+
 ```
