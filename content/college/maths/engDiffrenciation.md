@@ -118,6 +118,12 @@ $$\large
 $$
 ---
 2. two variables
+if u is composite function of t, defined by relations $u=f(x,y);x=\phi(u,v),y=\psi(u,v)$
+$$\large
+\begin{align}
+\frac{dz}{du}=\frac{\delta z}{\delta x}\cdot\frac{dx}{du}+\frac{\delta z}{\delta y}\cdot\frac{dy}{du}\\\frac{dz}{dv}=\frac{\delta z}{\delta x}\cdot\frac{dx}{dv}+\frac{\delta z}{\delta y}\cdot\frac{dy}{dv}
+\end{align}
+$$
 
 
 # taylor series
@@ -207,7 +213,7 @@ Let,
 Using taylor's series
 - r = $\LARGE \frac{\delta^{2} z}{\delta x^{2}}$
 - t = $\LARGE \frac{\delta^{2} z}{\delta y^{2}}$
-- s = $\LARGE \frac{\delta^{2} z}{\delta x\delta y}$\
+- s = $\LARGE \frac{\delta^{2} z}{\delta x\delta y}$
 Then, at critical points
 
 $$\large

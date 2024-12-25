@@ -1,4 +1,4 @@
-					# starting
+
 ```bash
 # installing
 npx create-next-app@latest

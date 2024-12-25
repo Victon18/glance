@@ -90,6 +90,7 @@ Implied Mode
 Address of the operands are specified implicitly in the instruction
 - No need to specify address in the instruction
 - Ex: CMA(Complement the accumulator)
+-
 ---
 Immediate Mode
 ---
@@ -113,15 +114,15 @@ Address specified in the instruction is the register address
 ---
 Register Indirect Mode
 ---
-Instruction specifies a register which contains the memory address of the operand
-
+- Instruction specifies a register which contains the memory address of the operand
+-
 ---
 Auto-increment
 ---
 Same as the Register Indirect, but when the address in the register is used to access memory, the value in the register is incremented after the execution of the
 instruction.
 
-Auto-decrement 
+Auto-decrement
 ---
 Same as the Register Indirect, but when the address in the register is used to access memory, the value in the register is decremented before the execution of the instruction.
 
@@ -142,3 +143,39 @@ Base Register Addressing Mode
 ---
 BAR: Base Address Register:
 - EA = BAR + IR(address)
+
+## example
+R1 = 98
+XR = 3
+Relative address = PC + address
+Index address = XR + address
+PC = programm Counter having next instruction address(52)
+
+| add | cont |
+| --- | ---- |
+| 50 | Load to AC/ Mode     |
+| 51 | Address = 100     |
+| 52 | Next Instruction     |
+| ---- | ---    |
+| 97 | 450     |
+| 98 | 700     |
+| 99 | 810     |
+| 100 | 105     |
+| 101 | 32     |
+| 102 | 45     |
+| 103 | 65     |
+| 104 | 75     |
+| 105 | 500     |
+| 152 | 70    |
+
+| Address Mode  | Effective address | Contents of Effective Address |
+| ------------- | ----------------- | ----------------------------- |
+| Direct        | 100               | 105                           |
+| Indirect      | 105               | 500                           |
+| Immediate     | -                 | 100                           |
+| Relative      | 152               | 70                            |
+| Indexed       | 103               | 65                            |
+| Reegister dir | -                 | 98                            |
+| Register in-  | 98                | 700                           |
+| Auto-incr     | 100;101           | -105;35                       |
+| Auto-decr     | 100;99            | 105;800                       |

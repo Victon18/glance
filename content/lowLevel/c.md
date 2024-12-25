@@ -1,4 +1,4 @@
-# C
+# comments
 ```c
 // Single-line comments start with // - only available in C99 and later.
 
@@ -9,13 +9,19 @@ Multi-line comments look like this. They work in C89 as well.
 /*
 Multi-line comments don't nest /* Be careful */  // comment ends on this line...
 */ // ...not this one!
+```
+# constants
+- Constants: `#define <keyword>`
+- Constants are written in all-caps out of convention, not requirement
 
-// Constants: #define <keyword>
-// Constants are written in all-caps out of convention, not requirement
+```c
 #define DAYS_IN_YEAR 365
+```
+# enum
+- Enumeration constants are also ways to declare constants.
+- All statements must end with a semicolon
 
-// Enumeration constants are also ways to declare constants.
-// All statements must end with a semicolon
+```c
 enum days {SUN, MON, TUE, WED, THU, FRI, SAT};
 // SUN gets 0, MON gets 1, TUE gets 2, etc.
 
@@ -24,20 +30,26 @@ enum days {SUN = 1, MON, TUE, WED = 99, THU, FRI, SAT};
 // MON gets 2 automatically, TUE gets 3, etc.
 // WED get 99, THU gets 100, FRI gets 101, etc.
 
-// Import headers with #include
+```
+# import
+- Import headers with `#include`
+- File names between `<angle brackets>` tell the compiler to look in your system libraries for the headers.
+- For your own headers, use double quotes instead of angle brackets, and provide the path:
+
+```c
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
-// File names between <angle brackets> tell the compiler to look in your system
-// libraries for the headers.
-// For your own headers, use double quotes instead of angle brackets, and
-// provide the path:
 #include "my_header.h"      // local file
 #include "../my_lib/my_lib_header.h" //relative path
 
-// Declare function signatures in advance in a .h file, or at the top of
-// your .c file.
+```
+
+# declare
+- Declare function signatures in advance in a .h file, or at the top of your .c file.
+
+```C
 void function_1();
 int function_2(void);
 
@@ -54,6 +66,9 @@ int add_two_ints(int x1, int x2); // function prototype
 // before the compiler knows of its existence, while also giving the developer a
 // clean header file to share with the rest of the project.
 
+```
+# main
+```c
 // Your program's entry point is a function called "main". The return type can
 // be anything, however most operating systems expect a return type of `int` for
 // error code processing.
@@ -65,8 +80,11 @@ int main(void) {
 // argc being the number of arguments - your program's name counts as 1
 // argv is an array of character arrays - containing the arguments themselves
 // argv[0] = name of your program, argv[1] = first argument, etc.
-int main (int argc, char** argv)
-{
+int main (int argc, char** argv){}
+```
+# print
+```c
+int main (int argc, char** argv){
   // print output using printf, for "print formatted"
   // %d is an integer, \n is a newline
   printf("%d\n", 0); // => Prints 0
@@ -76,10 +94,11 @@ int main (int argc, char** argv)
   // where we want to store the input value
   int input;
   scanf("%d", &input);
-
-  ///////////////////////////////////////
-  // Types
-  ///////////////////////////////////////
+}
+```
+# types
+```c
+int main (int argc, char** argv){
 
   // Compilers that are not C99-compliant require that variables MUST be
   // declared at the top of the current block scope.
@@ -132,7 +151,11 @@ int main (int argc, char** argv)
   size_t size = sizeof(a++); // a++ is not evaluated
   printf("sizeof(a++) = %zu where a = %d\n", size, a);
   // prints "sizeof(a++) = 4 where a = 1" (on a 32-bit architecture)
-
+}
+```
+## array
+```c
+int main (int argc, char** argv){
   // Arrays must be initialized with a concrete size.
   char my_char_array[20]; // This array occupies 1 * 20 = 20 bytes
   int my_int_array[20]; // This array occupies 4 * 20 = 80 bytes
@@ -179,6 +202,18 @@ int main (int argc, char** argv)
   // > Enter the array size: 10
   // > sizeof array = 40
 
+  // Multi-dimensional arrays:
+  int multi_array[2][5] = {
+    {1, 2, 3, 4, 5},
+    {6, 7, 8, 9, 0}
+  };
+  // access elements:
+  int array_int = multi_array[0][2]; // => 3
+}
+```
+## string
+```c
+int main (int argc, char** argv){
   // Strings are just arrays of chars terminated by a NULL (0x00) byte,
   // represented in strings as the special character '\0'.
   // (We don't have to include the NULL byte in string literals; the compiler
@@ -194,18 +229,12 @@ int main (int argc, char** argv)
   int cha = 'a'; // fine
   char chb = 'a'; // fine too (implicit conversion from int to char)
 
-  // Multi-dimensional arrays:
-  int multi_array[2][5] = {
-    {1, 2, 3, 4, 5},
-    {6, 7, 8, 9, 0}
-  };
-  // access elements:
-  int array_int = multi_array[0][2]; // => 3
+}
+```
+# operator
+```c
 
-  ///////////////////////////////////////
-  // Operators
-  ///////////////////////////////////////
-
+int main (int argc, char** argv){
   // Shorthands for multiple declarations:
   int i1 = 1, i2 = 2;
   float f1 = 1.0, f2 = 2.0;
@@ -298,11 +327,11 @@ int main (int argc, char** argv)
   // - left-shifting a negative number (int a = -1 << 2)
   // - shifting by an offset which is >= the width of the type of the LHS:
   //   int a = 1 << 32; // UB if int is 32 bits wide
-
-  ///////////////////////////////////////
-  // Control Structures
-  ///////////////////////////////////////
-
+}
+```
+# control structures
+```c
+int main (int argc, char** argv){
   if (0) {
     printf("I am never run\n");
   } else if (0) {
@@ -390,11 +419,11 @@ int main (int argc, char** argv)
     you really know what you are doing. See
     https://en.wikipedia.org/wiki/Spaghetti_code#Meaning
   */
-
-  ///////////////////////////////////////
-  // Typecasting
-  ///////////////////////////////////////
-
+}
+```
+# typecasting
+```c
+int main (int argc, char** argv){
   // Every value in C has a type, but you can cast one value into another type
   // if you want (with some constraints).
 
@@ -418,11 +447,11 @@ int main (int argc, char** argv)
   printf("%f\n", (double) 100); // %f always formats a double...
   printf("%f\n", (float)  100); // ...even with a float.
   printf("%d\n", (char)100.0);
-
-  ///////////////////////////////////////
-  // Pointers
-  ///////////////////////////////////////
-
+}
+```
+# pointers
+```c
+int main (int argc, char** argv){
   // A pointer is a variable declared to store a memory address. Its declaration will
   // also tell you the type of data it points to. You can retrieve the memory address
   // of your variables, then mess with them.
@@ -481,7 +510,11 @@ int main (int argc, char** argv)
   // (this is called pointer arithmetic)
   printf("%d\n", *(x_ptr + 1)); // => Prints 19
   printf("%d\n", x_array[1]); // => Prints 19
-
+}
+```
+# malloc
+```c
+int main (int argc, char** argv){
   // You can also dynamically allocate contiguous blocks of memory with the
   // standard library function malloc, which takes one argument of type size_t
   // representing the number of bytes to allocate (usually from the heap, although this
@@ -494,7 +527,7 @@ int main (int argc, char** argv)
   // Be careful passing user-provided values to malloc! If you want
   // to be safe, you can use calloc instead (which, unlike malloc, also zeros out the memory)
   int* my_other_ptr = calloc(20, sizeof(int));
-
+}
   // Note that there is no standard way to get the length of a
   // dynamically allocated array in C. Because of this, if your arrays are
   // going to be passed around your program a lot, you need another variable
@@ -535,11 +568,9 @@ int main (int argc, char** argv)
 
   function_1();
 } // end main function
-
-///////////////////////////////////////
-// Functions
-///////////////////////////////////////
-
+```
+# functions
+```c
 // Function declaration syntax:
 // <return type> <function name>(<args>)
 
@@ -663,10 +694,9 @@ void testFunc2() {
 // declared with some other starting value.
 //**You may also declare functions as static to make them private**
 
-///////////////////////////////////////
-// User-defined types and structs
-///////////////////////////////////////
-
+```
+## user defined types and structs
+```C
 // Typedefs can be used to create type aliases
 typedef int my_type;
 my_type my_type_var = 0;
@@ -725,10 +755,9 @@ int areaptr(const rect *r)
 {
   return r->width * r->height;
 }
-
-///////////////////////////////////////
-// Function pointers
-///////////////////////////////////////
+```
+## function pointers
+```c
 /*
 At run time, functions are located at known memory addresses. Function pointers are
 much like any other pointer (they just store a memory address), but can be used
@@ -757,12 +786,9 @@ typedef void (*my_fnp_type)(char *);
 // ...
 // my_fnp_type f;
 
-
-/////////////////////////////
-// Printing characters with printf()
-/////////////////////////////
-
-//Special characters:
+```
+# printf()
+## Special characters:
 /*
 '\a'; // alert (bell) character
 '\n'; // newline character
@@ -780,7 +806,8 @@ typedef void (*my_fnp_type)(char *);
 '\xhh'; // hexadecimal number. Example: '\xb' = vertical tab character
 '\0oo'; // octal number. Example: '\013' = vertical tab character
 
-//print formatting:
+## print formatting:
+
 "%d";    // integer
 "%3d";   // integer with minimum of length 3 digits (right justifies text)
 "%s";    // string
@@ -796,33 +823,28 @@ typedef void (*my_fnp_type)(char *);
 "%%";    // prints %
 */
 
-///////////////////////////////////////
-// Order of Evaluation
-///////////////////////////////////////
+# Order of Evaluation
+From top to bottom, top has higher precedence
 
-// From top to bottom, top has higher precedence
-//---------------------------------------------------//
-//        Operators                  | Associativity //
-//---------------------------------------------------//
-// () [] -> .                        | left to right //
-// ! ~ ++ -- + = *(type) sizeof      | right to left //
-// * / %                             | left to right //
-// + -                               | left to right //
-// << >>                             | left to right //
-// < <= > >=                         | left to right //
-// == !=                             | left to right //
-// &                                 | left to right //
-// ^                                 | left to right //
-// |                                 | left to right //
-// &&                                | left to right //
-// ||                                | left to right //
-// ?:                                | right to left //
-// = += -= *= /= %= &= ^= |= <<= >>= | right to left //
-// ,                                 | left to right //
-//---------------------------------------------------//
+|Operators|Associativity|
+|-|-|
+|`() [] -> .`|left to right|
+|`! ~ ++ -- + = *(type) sizeof`|right to left|
+|`* / %`|left to right|
+|`+ -`|left to right|
+|`<< >>`|left to right|
+|`< <= > >=`|left to right|
+|`== !=`|left to right|
+|`&`|left to right|
+|`^`|left to right|
+|`/(straight)`|left to right|
+|`&&`|left to right|
+|`/(both straight)`|left to right|
+|`?:`|right to left|
+|`= += -= *= /= %= &= ^= /(straight)= <<= >>=`|right to left|
+|`,`|left to right|
 
-/******************************* Header Files **********************************
-
+# header files
 Header files are an important part of C as they allow for the connection of C
 source files and can simplify code and definitions by separating them into
 separate files.
@@ -831,8 +853,8 @@ Header files are syntactically similar to C source files but reside in ".h"
 files. They can be included in your C source file by using the precompiler
 command #include "example.h", given that example.h exists in the same directory
 as the C file.
-*/
 
+```c
 /* A safe guard to prevent the header from being defined too many times. This */
 /* happens in the case of circle dependency, the contents of the header is    */
 /* already defined.                                                           */

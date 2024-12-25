@@ -248,7 +248,7 @@ class Main{
     }
 }
 ```
-formal argument args defined during creation of function
+3formal argument args defined during creation of function
 actual argument args passed during calling of function
 they have to be in same type and same number hence compile time
 
@@ -430,18 +430,64 @@ class Main{
 
 # 21 Oct
 
-## collection
+## collections
 ### Set interface
 - `TreeSet` and `Hashset` are implimentation classes
+
+```java
+import java.util.*;
+class GFG {
+    public static void main(String[] args)
+    {
+        Set<String> h = new HashSet<String>();
+        h.add("India");
+        h.add("Australia");
+        h.add("South Africa");
+        h.add("India");
+        System.out.println(h);
+        h.remove("Australia");
+        System.out.println("Set after removing "
+                           + "Australia:" + h);
+        System.out.println("Iterating over set:");
+        Iterator<String> i = h.iterator();
+        while (i.hasNext())
+            System.out.println(i.next());
+    }
+}
+```
+----
+```java
+import java.util.*;
+class GFG {
+    public static void main(String[] args)
+    {
+        Set<String> ts = new TreeSet<String>();
+        ts.add("India");
+        ts.add("Australia");
+        ts.add("South Africa");
+        ts.add("India");
+        System.out.println(ts);
+        ts.remove("Australia");
+        System.out.println("Set after removing "
+                           + "Australia:" + ts);
+
+        System.out.println("Iterating over set:");
+        Iterator<String> i = ts.iterator();
+        while (i.hasNext())
+            System.out.println(i.next());
+    }
+}
+
+```
 ### List interface
 
 - List is used to store duplicate element also unlike set
 -  It is the most useable collection in java
 - `ArrayList`, `LinkedList`, and `Vector` are implimenting classes of list interface.
-- vector is synchronized, and uses only one threas at a time
-- array list has fixed size, can use multiple threads, non-sorted
-- linkedlist is generally used from in between .
-
+- linkedlist is generally used to get elements in between.
+`public interface List<E> extends Collection<E> ;`
+#### arrayList
+- array list is a dynamic array, can use multiple threads, non-sorted
 ```java
 // ArrayList
 public class TestArrayList{
@@ -452,12 +498,68 @@ public class TestArrayList{
         a1.add('Agra');
         a1.add('Hardoi');
         a1.add('Delhi');
+        a1.add(1,'Delhi');
         System.out.println("List: "+a1);
         a1.remove("Hardoi")
+        a1.set(0, 5);
     }
 }
 ```
+---
+```java
+// listIterator
+import java.util.*;
+public class Main {
+    public static void main(String[] argv) throws Exception
+    {
+            ArrayList<String> arrlist = new ArrayList<String>();
+            arrlist.add("A");
+            arrlist.add("B");
+            arrlist.add("C");
+            arrlist.add("D");
+            System.out.println("ArrayList: "+ arrlist);
+            ListIterator<String>
+                iterator = arrlist.listIterator();
+            while (iterator.hasNext()) {
+                System.out.println("Value is : "+ iterator.next());
+            }
+            while (iterator.hasPrevious()) {
+                System.out.println("Value is : "+ iterator.previous());
+            }
+    }
+}
+```
+---
+```java
+//foreach
+```
+---
+#### vector
+- vector is synchronized, and uses only one threas at a time making it thread safe
+
+- size method moves by 1  and capacity method moves by 10.
+```java
+import java.util.Vector;
+
+public class VectorExample {
+    public static void main(String[] args) {
+        Vector<Integer> vector = new Vector<>();
+
+        vector.add(1);
+        vector.add(2);
+        vector.add(3);
+
+        System.out.println("Size: " + vector.size());
+        System.out.println("Capacity: " + vector.capacity());
+    }
+}
+```
+
 collections class
+---
+- collections is a static class having methods used for opereration.
+- sort, binary sort,
+- sort has 2 arguments -> list, instance of implimentation
 ```java
 public class TestArrayList{
     public static void main(String[] args){
@@ -478,8 +580,361 @@ public class TestArrayList{
     }
 }
 ```
+----
+Comparable
+---
+```
+
+```
+Comparator
+---
+```java
+import java.util.Comparator;
+public class Student{
+    private int rollno;
+    private String name;
+    public int getRoll(){
+        return roll;
+    }
+    public void setRoll(int rollno){
+        this.rollno = rollno;
+    }
+    public int getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+    public Student(int rollno, String name){
+        super();
+        this.rollno = rollno;
+        this.name = name;
+    }
+    public String toString(){
+        return"Name: "+ name+ "Roll no: "+ rollno;
+    }
+}
+
+public class ComparatorImp implements Comparator<Student>{
+    @Override
+    public int compare(Student o1, Student o2){
+        if (o1.getRoll() >= o2.getRoll()){
+            return 1;
+        } else {
+            return -1;
+        }
+    }
+}
+
+public class ArrayListDemo{
+    public static void main(String[] args){
+        ArrayList a1 = new ArrayList();
+        a1.add(new Student(5,"Mohit"));
+        a1.add(new Student(4,"Punit"));
+        a1.add(new Student(6,"Purav"));
+        a1.add(new Student(1,"Aashish"));
+        a1.add(new Student(8,"Tanmay"));
+        Collections.sort(a1,new ComparatorImp());
+        System.out.println("List: ", a1);
+
+    }
+}
+
+```
 
 ### Map interface
 - It is used to store element in key values pair
-- `HashMap` and `PreMap` are implimenting classes .
+- `HashMap` and `TreeMap` are implimenting classes .
+- `HashTable` is synchronized hasmap.
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+public class MapDemo{
+    public static void main(String[] args){
+        Map<Integer,String>mp=new HashMap<Integer,String()>;
+        mp.put(11,"Chanchlani");
+        mp.put(23,"Purav");
+        mp.put(11,"Punit");
+        mp.put(9,"Sunraybee");
+        mp.put(7,"Ajay");
+        System.out.println(mp);
+        System.out.println(mp.get(23));
+
+    }
+
+}
+```
+---
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+public class MapDemo {
+    public static void main(String[] args) {
+        Map<Integer, String> mp = new HashMap<Integer, String>();
+        mp.put(11, capitalizeFirstAndLast("Chanchlani"));
+        mp.put(23, capitalizeFirstAndLast("Purav"));
+        mp.put(11, capitalizeFirstAndLast("Punit"));
+        mp.put(9, capitalizeFirstAndLast("Sunraybee"));
+        mp.put(7, capitalizeFirstAndLast("Ajay"));
+
+        System.out.println(mp);
+        System.out.println(mp.get(23));
+    }
+
+    private static String capitalizeFirstAndLast(String name) {
+        if (name == null || name.length() == 0) {
+            return name; // Return as is for null or empty strings
+        }
+        char[] chars = name.toCharArray();
+        chars[0] = Character.toUpperCase(chars[0]); // Capitalize first character
+        if (chars.length > 1) {
+            chars[chars.length - 1] = Character.toUpperCase(chars[chars.length - 1]); // Capitalize last character
+        }
+        return new String(chars);
+    }
+}
+
+```
+# string API
+# 8 oct
+Implicit exception
+```java
+class ExTest{
+    public void test(){
+        try{
+            int ar[] = {1,2,3,4};
+            System.out.println(ar[5]);
+        } catch(Exception e){
+            System.out.println("Invalid index");
+        }
+    }
+    public void mam(String[] args){
+        ExTest t1 = new ExTest();
+        t1.test();
+    }
+}
+```
+Explicit exception
+```java
+class ExTest{
+    public void test(int age){
+        try{
+            if(age<1||age>100){
+                throw new Exception ("Invalid age")
+            }else{
+            System.out.println("Age: "+age);
+            }
+        } catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    public void mam(String[] args){
+        ExTest t1 = new ExTest();
+        t1.test(12);
+    }
+}
+
+```
+Custom exception
+```java
+class CustException extends Exception{
+    public CustException(String str){
+        super(str);
+    }
+}
+```
+1. write a program to enter rows, columns, elements of two matrices and print them.
+if they compatible for multiply print multiplication otherwise generate explicit exception.
+
+2. write a program to enter a sentence; print its all words with first and last letter same.
+if no such word generate explicit exception.
+
+# 18 Nov
+```java
+import thread_class;
+public class ThreadTest extends Thread{
+public void run(){
+    try{
+        for(int i=2;i<=20;i=i+2){
+            System.out.println(getName()+" "+i+" ");
+            sleep(4000);
+        }
+    }
+    catch(Exception e){
+        e.printStackTrace();
+    }
+}
+public static void main(String[] args){
+    ThreadTest t1 = new ThreadTest();
+    ThreadTest t2 = new ThreadTest();
+    t1.start();
+    t2.start();
+}
+}
+```
+Write a program to enter a number and print all its prime factors at 4 sec interval
+```java
+```
+# 19 Dec
+```java
+import thread_class;
+import java.util.Scanner;
+public class ThreadTest2 extends Runnable{
+public void run(){
+    try{
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter");
+        String name = sc.next();
+        for(char c:(""+n).toCharArray()){
+            System.out.println(c+" ");
+            Thread.sleep(4000);
+        }
+        }
+    }
+    catch(Exception e){
+        e.printStackTrace();
+    }
+}
+public static void main(String[] args){
+    ThreadTest2 t1 = new ThreadTest2();
+    t1.setName("First");
+    Thread th = new Thread(t1);
+    th.start();
+    ThreadTest t2 = new ThreadTest();
+    t2.start();
+}
+}
+```
+1. All prime numbers from 100-50 at 5 sec interval
+2. print factorial of after 10 sec interval
+3. enter a sentence and print all its word at 5 sec by changing first and last letter in CAP
+4.
+# synchronization in multithreading
+```java
+class Data{
+    int num;
+    public Data(int num){
+        this.num = num;
+    }
+}
+class ThreadTest extends Thread {
+    Data d1;
+    public ThreadTest(Data d1){
+    this.d1=d1;
+    }
+    public void run(){
+    try{
+        for (int i=1;i<=5;i++){
+            System.out.println(d1.num+' ');
+            sleep(4000);
+        }
+    }
+    catch(Exception e){
+        System.out.println("Some exception");
+    }
+    }
+}
+class MainClass{
+public static void main (String[] args){
+    ThreadTest t1 = new ThreadTest(new Data(5));
+    ThreadTest t2 = new ThreadTest(new Data(10));
+        t1.start();
+        t2.start();
+    }
+}
+```
+---
+```java
+class Data{
+    int num;
+    public Data(int num){
+        this.num = num;
+    }
+    synchronized void display(){
+        try{
+            for (int i = 1; i<=5,i++){
+                System.out.println(num+" ");
+                Threadsleep(4000);
+           }
+        catch(Exception e){
+            System.out.println("Exception in synchronozation")
+        }
+        }
+
+    }
+}
+class ThreadTest extends Thread {
+    Data d1;
+    public ThreadTest(Data d1){
+    this.d1=d1;
+    }
+    public void run(){
+    try{
+        di.display();
+    }
+    catch(Exception e){
+        System.out.println("Some exception");
+    }
+    }
+}
+class MainClass{
+public static void main (String[] args){
+    ThreadTest t1 = new ThreadTest(new Data(5));
+    ThreadTest t2 = new ThreadTest(new Data(10));
+        t1.start();
+        t2.start();
+    }
+}
+```
+# 25 Nov
+java 8 new features
+1. functional interface
+2. lamda expression
+3. default method in iterface
+4. for each method in collection
+
+- interface has abstract methods
+
+```java
+package java8_features;
+@FunctionalInterface
+public interface Test{
+    public void fun1();
+    public void fun2(){
+        System.out.println("fun2");
+    }
+}
+
+public class MainClass {
+    public static void main(String[] args){
+        Test t1() ->{System.out.println("implementing");};
+        t1.fun1();
+    }
+}
+```
+---
+```java
+public interface Test{
+    public void fun1();
+    public default void fun2(){
+        System.out.println("Default method")
+    }
+}
+public class TestImp implements Test{
+    @Override
+    public void fun1(){
+        System.out.println("Abstracted");
+    }
+}
+public class MainClass{
+    public static void main(String[] args){
+        TestImp t1=new TestImp();
+        t1.fun2();
+        t1.fun1();
+    }
+}
+```
+Array string collection and project
 

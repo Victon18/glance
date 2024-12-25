@@ -120,7 +120,10 @@ $$
 # taylor series
 1. let f(x+h) be a function of h (x being independent of h)
 $$\large
-f(x+h)=f(x)+hf'(x)+\frac{h^{2}}{2!}f''(x)+\frac{h^{3}}{3!}f'''(x)+\dots+\frac{h^{n}}{n!}f^{n}(x)
+\begin{align}
+f(x+h)&= \frac{h^{n}}{n!}f^{n}(x)\\
+f(x+h)&=f(x)+hf'(x)+\frac{h^{2}}{2!}f''(x)+\frac{h^{3}}{3!}f'''(x)+\dots+\frac{h^{n}}{n!}f^{n}(x)
+\end{align}
 $$
 ---
 2. function of two variables
